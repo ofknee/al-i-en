@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cpxorq2xxxiym"]
 
-[ext_resource type="Texture2D" uid="uid://dqimokf7noff6" path="res://assets/env/Screenshot 2026-06-30 at 7.25.55 AM.png" id="1_comf0"]
+[ext_resource type="Texture2D" uid="uid://dqimokf7noff6" path="res://assets/env/jar.png" id="1_comf0"]
 
 [node name="jar" type="Node2D" unique_id=87631032]
 
