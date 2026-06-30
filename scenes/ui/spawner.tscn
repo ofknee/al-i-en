@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cit277u2pv5lb"]
+
+[node name="spawner" type="Control" unique_id=462029971]
+layout_mode = 3
+anchors_preset = 0

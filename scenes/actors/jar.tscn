@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cpxorq2xxxiym"]
+
+[ext_resource type="Texture2D" uid="uid://dqimokf7noff6" path="res://assets/env/Screenshot 2026-06-30 at 7.25.55 AM.png" id="1_comf0"]
+
+[node name="jar" type="Node2D" unique_id=87631032]
+
+[node name="JarSprite" type="Sprite2D" parent="." unique_id=475935047]
+position = Vector2(-48, 2)
+texture = ExtResource("1_comf0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1390146709]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=110907184]
+position = Vector2(-55.06725, -117.80567)
+build_mode = 1
+polygon = PackedVector2Array(-134.93274, -193.19432, -137.93274, -112.19433, -194.93274, -48.194324, -206.93274, -9.194326, -207.93274, 363.80566, -183.93274, 402.80566, -149.93274, 419.80566, 154.06726, 420.80566, 197.06726, 392.80566, 211.06726, 360.80566, 209.06726, -15.194326, 194.06726, -54.194324, 138.06726, -124.19433, 143.06726, -192.19432)
