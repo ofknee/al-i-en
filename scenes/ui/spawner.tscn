@@ -1,10 +1,5 @@
 [gd_scene format=3 uid="uid://cit277u2pv5lb"]
 
-[ext_resource type="Texture2D" uid="uid://ga4f5rlh6lmc" path="res://assets/ui/button.png" id="1_qrres"]
+[node name="Spawner" type="Node2D" unique_id=733594041]
 
-[node name="spawner" type="Control" unique_id=462029971]
-layout_mode = 3
-anchors_preset = 0
-
-[node name="Button" type="Sprite2D" parent="." unique_id=653722108]
-texture = ExtResource("1_qrres")
+[node name="Button" type="Marker2D" parent="." unique_id=1843559101]

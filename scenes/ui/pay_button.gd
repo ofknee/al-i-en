@@ -3,7 +3,7 @@ extends TextureButton
 #COLORS BC WE WHIMSY (not really though over here :((( )
 
 const COLOR_PRESSED := Color(.8, .8, .8)
-
+@export var type: String = ""
 var tween: Tween
 
 func _on_mouse_entered() -> void:
@@ -44,4 +44,4 @@ func _on_button_up() -> void:
 
 
 func _on_pressed() -> void:
-	pass # Replace with function body.
+	SignalBus.spawn_eye.emit(type)
