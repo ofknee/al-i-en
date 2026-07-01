@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cpxorq2xxxiym" path="res://scenes/environment/jar.tscn" id="1_4m08x"]
 [ext_resource type="PackedScene" uid="uid://cit277u2pv5lb" path="res://scenes/ui/spawner.tscn" id="1_gbbem"]
 [ext_resource type="Script" uid="uid://b1pjn1fbgq62x" path="res://scenes/ui/spawner.gd" id="2_qkl7e"]
+[ext_resource type="PackedScene" uid="uid://b8qm1kv1edj1m" path="res://scenes/eyes/eye.tscn" id="3_6t4g7"]
 [ext_resource type="Texture2D" uid="uid://2jyg3xj5odmb" path="res://assets/env/shelf.png" id="3_qkl7e"]
 
 [node name="main" type="Control" unique_id=2147414951]
@@ -16,6 +17,7 @@ grow_vertical = 2
 [node name="Spawner" parent="." unique_id=733594041 instance=ExtResource("1_gbbem")]
 position = Vector2(1211, 157)
 script = ExtResource("2_qkl7e")
+eye_scene = ExtResource("3_6t4g7")
 
 [node name="env" type="Node2D" parent="." unique_id=1389023258]
 
