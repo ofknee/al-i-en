@@ -1,16 +1,19 @@
 [gd_scene format=3 uid="uid://b8qm1kv1edj1m"]
 
+[ext_resource type="Script" uid="uid://dlfy8wej4x734" path="res://scenes/eyes/eye.gd" id="1_r3l4q"]
 [ext_resource type="Texture2D" uid="uid://bujq3hbmjfwp2" path="res://assets/icon.svg" id="1_yychv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g3y2c"]
-radius = 58.00862
+radius = 46.010868
 
 [node name="eye" type="RigidBody2D" unique_id=591625421]
+script = ExtResource("1_r3l4q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=315083143]
 shape = SubResource("CircleShape2D_g3y2c")
 
 [node name="placeholder" type="Node2D" parent="." unique_id=1885766453]
+scale = Vector2(0.76000106, 0.76000106)
 
 [node name="Icon" type="Sprite2D" parent="placeholder" unique_id=640974828]
 position = Vector2(0, 3.8146973e-06)

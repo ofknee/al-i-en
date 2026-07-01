@@ -29,11 +29,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.8086853, 1.8086853)
+scale = Vector2(0.9988718, 1)
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_constants/line_separation = -5
+mouse_filter = 2
 text = "LEVEL X EYE
-[PRICE]"
+PRICE {sfijslkdfjslkdf}"
 horizontal_alignment = 1
 vertical_alignment = 1
 

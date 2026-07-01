@@ -1,5 +1,10 @@
 [gd_scene format=3 uid="uid://cit277u2pv5lb"]
 
-[node name="Spawner" type="Node2D" unique_id=733594041]
+[ext_resource type="Script" uid="uid://mi08jctmynim" path="res://scenes/general/spawner.gd" id="1_qrres"]
+[ext_resource type="PackedScene" uid="uid://b8qm1kv1edj1m" path="res://scenes/eyes/eye.tscn" id="2_s4eic"]
 
-[node name="Button" type="Marker2D" parent="." unique_id=1843559101]
+[node name="Spawner" type="Node2D" unique_id=733594041]
+script = ExtResource("1_qrres")
+eye_scene = ExtResource("2_s4eic")
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1843559101]
