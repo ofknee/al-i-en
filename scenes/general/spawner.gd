@@ -6,11 +6,11 @@ extends Node2D
 func _ready() -> void:
 	SignalBus.spawn_eye.connect(spawn) # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-func spawn(type: String) -> void:
+func spawn(info: EyeInfo) -> void:
 	var inst = eye_scene.instantiate()
+	inst.info = info
 	inst.global_position = spawn_point
 	add_child(inst)

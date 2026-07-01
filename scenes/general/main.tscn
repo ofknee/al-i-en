@@ -10,24 +10,6 @@
 a = Vector2(595.46436, -17.911621)
 b = Vector2(-512.4429, -14.380615)
 
-[sub_resource type="GDScript" id="GDScript_6t4g7"]
-script/source = "extends Node2D
-@export var eye_scene: PackedScene
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	SignalBus.spawn_eye.connect(spawn) # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func spawn(type: String) -> void:
-	var inst = eye_scene.instantiate()
-	add_child(inst)
-"
-
 [node name="main" type="Control" unique_id=2147414951]
 layout_mode = 3
 anchors_preset = 15
@@ -66,5 +48,4 @@ offset_bottom = 57.0
 type = ExtResource("4_6t4g7")
 
 [node name="Spawner" parent="." unique_id=733594041 instance=ExtResource("1_gbbem")]
-position = Vector2(1156, 131)
-script = SubResource("GDScript_6t4g7")
+position = Vector2(1039, 112)
