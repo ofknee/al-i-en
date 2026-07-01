@@ -4,7 +4,7 @@ extends TextureButton
 #COLORS BC WE WHIMSY (not really though over here :((( )
 
 const COLOR_PRESSED := Color(.8, .8, .8)
-@export var type: String = ""
+@export var type: EyeInfo
 var tween: Tween
 
 func _on_mouse_entered() -> void:

@@ -3,7 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://cpxorq2xxxiym" path="res://scenes/environment/jar.tscn" id="1_4m08x"]
 [ext_resource type="PackedScene" uid="uid://cit277u2pv5lb" path="res://scenes/ui/spawner.tscn" id="1_gbbem"]
 [ext_resource type="Texture2D" uid="uid://2jyg3xj5odmb" path="res://assets/env/shelf.png" id="3_qkl7e"]
+[ext_resource type="Resource" uid="uid://qhtnlm64qf7d" path="res://scenes/eyes/level1.tres" id="4_6t4g7"]
 [ext_resource type="PackedScene" uid="uid://bw645k3ex02ay" path="res://scenes/ui/pay_button.tscn" id="4_qkl7e"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_43hlm"]
+a = Vector2(595.46436, -17.911621)
+b = Vector2(-512.4429, -14.380615)
 
 [sub_resource type="GDScript" id="GDScript_6t4g7"]
 script/source = "extends Node2D
@@ -37,8 +42,18 @@ grow_vertical = 2
 position = Vector2(959, 425.99997)
 scale = Vector2(0.54883826, 0.55)
 
-[node name="Shelf" type="Sprite2D" parent="env" unique_id=230971083]
+[node name="shelf" type="StaticBody2D" parent="env" unique_id=148999392]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env/shelf" unique_id=1692260698]
 position = Vector2(1149.9999, 204.99998)
+rotation = 2.883661
+scale = Vector2(0.22047535, 0.20298849)
+skew = -0.004259467
+shape = SubResource("SegmentShape2D_43hlm")
+
+[node name="Shelf" type="Sprite2D" parent="env/shelf" unique_id=230971083]
+position = Vector2(1149.9999, 204.99998)
+rotation = -0.2342534
 scale = Vector2(0.22048646, 0.20297642)
 texture = ExtResource("3_qkl7e")
 
@@ -48,7 +63,8 @@ offset_left = -365.0
 offset_top = -59.0
 offset_right = -35.0
 offset_bottom = 57.0
+type = ExtResource("4_6t4g7")
 
 [node name="Spawner" parent="." unique_id=733594041 instance=ExtResource("1_gbbem")]
-position = Vector2(933, 143)
+position = Vector2(1156, 131)
 script = SubResource("GDScript_6t4g7")

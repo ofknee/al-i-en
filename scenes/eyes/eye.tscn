@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://b8qm1kv1edj1m"]
 
 [ext_resource type="Script" uid="uid://dlfy8wej4x734" path="res://scenes/eyes/eye.gd" id="1_r3l4q"]
-[ext_resource type="Texture2D" uid="uid://bujq3hbmjfwp2" path="res://assets/icon.svg" id="1_yychv"]
+[ext_resource type="Texture2D" uid="uid://c2ews26an1jnd" path="res://assets/eyes/level1.png" id="2_r3l4q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g3y2c"]
-radius = 46.010868
+radius = 30.066593
 
 [node name="eye" type="RigidBody2D" unique_id=591625421]
 script = ExtResource("1_r3l4q")
@@ -12,30 +12,7 @@ script = ExtResource("1_r3l4q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=315083143]
 shape = SubResource("CircleShape2D_g3y2c")
 
-[node name="placeholder" type="Node2D" parent="." unique_id=1885766453]
-scale = Vector2(0.76000106, 0.76000106)
-
-[node name="Icon" type="Sprite2D" parent="placeholder" unique_id=640974828]
-position = Vector2(0, 3.8146973e-06)
-scale = Vector2(0.8671875, 0.46875)
-texture = ExtResource("1_yychv")
-
-[node name="Icon3" type="Sprite2D" parent="placeholder" unique_id=793698808]
-position = Vector2(-2.749998, -39)
-scale = Vector2(0.57421875, 0.15625)
-texture = ExtResource("1_yychv")
-
-[node name="Icon4" type="Sprite2D" parent="placeholder" unique_id=673569150]
-position = Vector2(1.0000002, 40)
-scale = Vector2(0.57421875, 0.15625)
-texture = ExtResource("1_yychv")
-
-[node name="Icon5" type="Sprite2D" parent="placeholder" unique_id=264923160]
-position = Vector2(0, 52)
-scale = Vector2(0.20117188, 0.08593749)
-texture = ExtResource("1_yychv")
-
-[node name="Icon6" type="Sprite2D" parent="placeholder" unique_id=476545303]
-position = Vector2(-1, -53)
-scale = Vector2(0.20117188, 0.08593749)
-texture = ExtResource("1_yychv")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=676384621]
+position = Vector2(-3, -3)
+scale = Vector2(0.070979476, 0.070979476)
+texture = ExtResource("2_r3l4q")

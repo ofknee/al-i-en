@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="EyeInfo" format=3 uid="uid://bsebt03oxnfmu"]
-
-[ext_resource type="Script" uid="uid://cduu5qqh357kf" path="res://scenes/eyes/eye_info.gd" id="1_s42ne"]
-
-[resource]
-script = ExtResource("1_s42ne")
-metadata/_custom_type_script = "uid://cduu5qqh357kf"
