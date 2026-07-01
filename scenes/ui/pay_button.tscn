@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bw645k3ex02ay"]
 
 [ext_resource type="Texture2D" uid="uid://ga4f5rlh6lmc" path="res://assets/ui/button.png" id="1_17ntd"]
-[ext_resource type="Script" uid="uid://c6wnklnb7ddw5" path="res://scenes/ui/button.gd" id="2_17ntd"]
+[ext_resource type="Script" uid="uid://dyqxsdy0tgjr5" path="res://scenes/ui/pay_button.gd" id="2_17ntd"]
 
-[node name="MyButton" type="TextureButton" unique_id=1306864685]
+[node name="PayButton" type="TextureButton" unique_id=1306864685]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
