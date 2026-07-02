@@ -19,8 +19,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func spawn(level: int) -> void:
+func spawn(level_temp: int) -> void: ##spawn eye of level at marker2d
 	var inst: Eye = eye_scene.instantiate()
-	inst.info = eye_collection[level]
+	inst.info = eye_collection[level_temp-1]
+	print("spawning level",level_temp)
 	add_child(inst)
-	inst.position = Vector2.ZERO
+	inst.position = Vector2(0.0, randf_range(-10.0,10.0))
+	

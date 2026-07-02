@@ -27,8 +27,5 @@ func scale(factor):
 
 func _on_body_entered(body: Node) -> void:
 	if body is Eye:
-		if body.level == level:
-			print("collide!")
+		if body.level == level:   # if hit other eye of same level
 			queue_free()
-		else:
-			print("collide no disappear")

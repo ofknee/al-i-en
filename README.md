@@ -5,6 +5,6 @@ eye merge
 * timer
 * polaroid
 * sfx
-* cooldown for spawning
+* cooldown for spawning OR wait until collision shape sleeping before starting next
 * fix overflow somehow???
 * obstacles
