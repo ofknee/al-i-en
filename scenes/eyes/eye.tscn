@@ -3,11 +3,15 @@
 [ext_resource type="Script" uid="uid://dlfy8wej4x734" path="res://scenes/eyes/eye.gd" id="1_r3l4q"]
 [ext_resource type="Texture2D" uid="uid://c2ews26an1jnd" path="res://assets/eyes/level1.png" id="2_r3l4q"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r3l4q"]
+bounce = 0.3
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_g3y2c"]
 resource_local_to_scene = true
 radius = 17.0
 
 [node name="eye" type="RigidBody2D" unique_id=591625421]
+physics_material_override = SubResource("PhysicsMaterial_r3l4q")
 script = ExtResource("1_r3l4q")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=676384621]
