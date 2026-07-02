@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://2jyg3xj5odmb" path="res://assets/env/shelf.png" id="3_qkl7e"]
 [ext_resource type="Resource" uid="uid://qhtnlm64qf7d" path="res://scenes/eyes/level1.tres" id="4_6t4g7"]
 [ext_resource type="PackedScene" uid="uid://bw645k3ex02ay" path="res://scenes/ui/pay_button.tscn" id="4_qkl7e"]
+[ext_resource type="Resource" uid="uid://dfsgqyvm8460b" path="res://scenes/eyes/level2.tres" id="5_th32y"]
+[ext_resource type="Resource" uid="uid://cdqupxruo0msa" path="res://scenes/eyes/level3.tres" id="6_btprj"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_43hlm"]
 a = Vector2(595.46436, -17.911621)
@@ -39,13 +41,29 @@ rotation = -0.2342534
 scale = Vector2(0.22048646, 0.20297642)
 texture = ExtResource("3_qkl7e")
 
-[node name="PayButton" parent="." unique_id=1306864685 instance=ExtResource("4_qkl7e")]
+[node name="Level1Button" parent="." unique_id=1306864685 instance=ExtResource("4_qkl7e")]
 layout_mode = 1
 offset_left = -365.0
 offset_top = -59.0
 offset_right = -35.0
 offset_bottom = 57.0
 type = ExtResource("4_6t4g7")
+
+[node name="Level2Button" parent="." unique_id=176351069 instance=ExtResource("4_qkl7e")]
+layout_mode = 1
+offset_left = -366.0
+offset_top = 86.0
+offset_right = -36.0
+offset_bottom = 202.0
+type = ExtResource("5_th32y")
+
+[node name="Level3Button" parent="." unique_id=663463377 instance=ExtResource("4_qkl7e")]
+layout_mode = 1
+offset_left = -366.0
+offset_top = 229.0
+offset_right = -36.0
+offset_bottom = 345.0
+type = ExtResource("6_btprj")
 
 [node name="Spawner" parent="." unique_id=733594041 instance=ExtResource("1_gbbem")]
 position = Vector2(1039, 112)

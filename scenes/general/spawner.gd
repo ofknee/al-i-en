@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 	pass
 
 func spawn(info: EyeInfo) -> void:
-	var inst = eye_scene.instantiate()
+	var inst: Eye = eye_scene.instantiate()
 	inst.info = info
-	inst.global_position = spawn_point
 	add_child(inst)
+	inst.position = Vector2.ZERO

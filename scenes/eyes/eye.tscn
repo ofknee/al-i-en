@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c2ews26an1jnd" path="res://assets/eyes/level1.png" id="2_r3l4q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g3y2c"]
-radius = 30.066593
+radius = 24.020824
 
 [node name="eye" type="RigidBody2D" unique_id=591625421]
 script = ExtResource("1_r3l4q")
@@ -13,6 +13,7 @@ script = ExtResource("1_r3l4q")
 shape = SubResource("CircleShape2D_g3y2c")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=676384621]
-position = Vector2(-3, -3)
-scale = Vector2(0.070979476, 0.070979476)
+scale = Vector2(0.056877494, 0.056877494)
 texture = ExtResource("2_r3l4q")
+region_enabled = true
+region_rect = Rect2(647, 643, 854, 838)

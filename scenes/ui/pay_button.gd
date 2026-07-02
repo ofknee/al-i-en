@@ -3,7 +3,7 @@ extends TextureButton
 
 #COLORS BC WE WHIMSY (not really though over here :((( )
 
-const COLOR_PRESSED := Color(.8, .8, .8)
+const COLOR_PRESSED := Color(0.9, 0.9, 0.9, 1.0)
 @export var type: EyeInfo
 var tween: Tween
 
