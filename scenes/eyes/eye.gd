@@ -25,7 +25,9 @@ func scale(factor):
 	sprite.scale = Vector2(og_sprite_scale*factor, og_sprite_scale*factor) 
 	coll.shape.radius = og_coll_scale*factor
 
-func _on_body_entered(body: Node) -> void:
+func _on_body_entered(body: Node) -> void: ##"merge"
 	if body is Eye:
-		if body.level == level:   # if hit other eye of same level
+		if body.level == level:
+			if name > body.name: 
+				SignalBus.spawn_eye.emit(level+1)
 			queue_free()
