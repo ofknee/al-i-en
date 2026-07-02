@@ -11,6 +11,8 @@ var level : int
 
 func _ready() -> void:
 	type()
+	await self.sleeping == true
+	print ("asleep")
 
 func type() -> void:
 	if info == null:
@@ -29,5 +31,5 @@ func _on_body_entered(body: Node) -> void: ##"merge"
 	if body is Eye:
 		if body.level == level:
 			if name > body.name: 
-				SignalBus.spawn_eye.emit(level+1)
+				SignalBus.merge_eye.emit(level+1, position)
 			queue_free()

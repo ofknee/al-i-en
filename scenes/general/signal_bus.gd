@@ -1,7 +1,7 @@
 extends Node
 
 signal spawn_eye(level: int)
-signal merge_eye(level: int, position : Vector2)
+signal merge_eye(level: int, merge_position : Vector2)
 
 #
 ## Called when the node enters the scene tree for the first time.
