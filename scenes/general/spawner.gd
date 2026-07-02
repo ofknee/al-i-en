@@ -22,6 +22,7 @@ extends Node2D
 func _ready() -> void:
 	SignalBus.spawn_eye.connect(spawn_new)
 	SignalBus.merge_eye.connect(spawn_merged) 
+	SignalBus.force_kill.connect(kill_all_eyes)
 
 
 func _process(delta: float) -> void:
@@ -30,13 +31,22 @@ func _process(delta: float) -> void:
 func spawn_new(level: int) -> void: ##spawn eye @ top
 	var inst: Eye = eye_scene.instantiate()
 	inst.info = eye_collection[level-1]
-	print("spawning level",eye_collection[level-1].level)
+	#print("spawning level",eye_collection[level-1].level)
 	add_child(inst)
-	inst.position = Vector2(0.0, randf_range(-10.0,10.0))
+	inst.position = Vector2(randf_range(0.0,40.0), randf_range(-10.0,40.0))
 	
 func spawn_merged(level: int, merge_position : Vector2):
 	var inst: Eye = eye_scene.instantiate()
 	inst.info = eye_collection[level-1]
-	print("spawning level",eye_collection[level-1].level)
 	add_child(inst)
 	inst.position = merge_position
+
+func kill_all_eyes():
+	var tally_coins : int = 0
+	for child in get_children():
+		if child is Eye: 
+			tally_coins += child.info.value
+			child.queue_free()
+	Global.coins += tally_coins/5
+	Global.round += 1
+	print("round:",Global.round)

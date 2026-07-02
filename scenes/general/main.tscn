@@ -10,7 +10,8 @@
 [ext_resource type="Resource" uid="uid://dfsgqyvm8460b" path="res://scenes/eyes/level2.tres" id="5_th32y"]
 [ext_resource type="Resource" uid="uid://cdqupxruo0msa" path="res://scenes/eyes/level3.tres" id="6_btprj"]
 [ext_resource type="Resource" uid="uid://cw55id4dbpbte" path="res://scenes/eyes/level6.tres" id="6_ehwae"]
-[ext_resource type="Script" uid="uid://c8jyltrtrq764" path="res://scenes/general/currency_text.gd" id="11_ehwae"]
+[ext_resource type="Script" uid="uid://c8jyltrtrq764" path="res://scenes/ui/currency_text.gd" id="11_ehwae"]
+[ext_resource type="Script" uid="uid://bffcsd856huo" path="res://scenes/ui/kill_button.gd" id="11_jyi1d"]
 [ext_resource type="Texture2D" uid="uid://duahv7mkim3xr" path="res://scenes/ui/coin.png" id="12_jyi1d"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_43hlm"]
@@ -32,16 +33,15 @@ position = Vector2(879, 442.99997)
 scale = Vector2(0.54883826, 0.55)
 
 [node name="shelf" type="StaticBody2D" parent="env" unique_id=148999392]
+position = Vector2(1121, 208)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="env/shelf" unique_id=1692260698]
-position = Vector2(1149.9999, 204.99998)
 rotation = 2.883661
 scale = Vector2(0.22047535, 0.20298849)
 skew = -0.004259467
 shape = SubResource("SegmentShape2D_43hlm")
 
 [node name="Shelf" type="Sprite2D" parent="env/shelf" unique_id=230971083]
-position = Vector2(1149.9999, 204.99998)
 rotation = -0.2342534
 scale = Vector2(0.22048646, 0.20297642)
 texture = ExtResource("3_qkl7e")
@@ -55,13 +55,12 @@ level6eye = ExtResource("6_ehwae")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1879695635]
 
 [node name="Shop" type="Control" parent="CanvasLayer" unique_id=1421271419]
+custom_minimum_size = Vector2(400, 0)
+custom_maximum_size = Vector2(400, -1)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Shop" unique_id=1506808134]
 layout_mode = 1
@@ -83,41 +82,35 @@ size_flags_vertical = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer" unique_id=921072635]
 layout_mode = 2
 
-[node name="Buy1" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1306864685 instance=ExtResource("4_qkl7e")]
+[node name="Level1Button" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1306864685 instance=ExtResource("4_qkl7e")]
 layout_mode = 2
 type = ExtResource("4_6t4g7")
 
-[node name="Buy2" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=176351069 instance=ExtResource("4_qkl7e")]
+[node name="Level2Button" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=176351069 instance=ExtResource("4_qkl7e")]
 layout_mode = 2
 type = ExtResource("5_th32y")
 
-[node name="Buy3" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=663463377 instance=ExtResource("4_qkl7e")]
+[node name="Level3Button" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=663463377 instance=ExtResource("4_qkl7e")]
 layout_mode = 2
 type = ExtResource("6_btprj")
 
-[node name="Buy4" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=639128814 instance=ExtResource("4_qkl7e")]
+[node name="KillButton" type="Button" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1155501836]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-type = ExtResource("4_6w4s0")
+text = "force kill"
+script = ExtResource("11_jyi1d")
 
-[node name="Buy5" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=629182049 instance=ExtResource("4_qkl7e")]
-layout_mode = 2
-type = ExtResource("5_18j88")
-
-[node name="Buy6" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=204971869 instance=ExtResource("4_qkl7e")]
-layout_mode = 2
-type = ExtResource("6_ehwae")
-
-[node name="Bank" type="Control" parent="CanvasLayer" unique_id=1217170575]
+[node name="Bank" type="Control" parent="CanvasLayer" unique_id=942632118]
+custom_minimum_size = Vector2(600, 100)
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+grow_horizontal = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Bank" unique_id=1202662508]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Bank" unique_id=1845312743]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 1
 anchors_preset = 1
@@ -126,15 +119,24 @@ anchor_right = 1.0
 offset_left = -1.0
 grow_horizontal = 0
 
-[node name="CurrencyText" type="RichTextLabel" parent="CanvasLayer/Bank/MarginContainer" unique_id=1491856314]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Bank/MarginContainer" unique_id=1574073066]
 layout_mode = 2
+
+[node name="CurrencyText" type="RichTextLabel" parent="CanvasLayer/Bank/MarginContainer/HBoxContainer" unique_id=1171032743]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 75
 text = "123456789"
+scroll_active = false
+horizontal_alignment = 2
+vertical_alignment = 1
 script = ExtResource("11_ehwae")
 
-[node name="Sprite2D" type="TextureRect" parent="CanvasLayer/Bank/MarginContainer" unique_id=1190733773]
+[node name="Sprite2D" type="TextureRect" parent="CanvasLayer/Bank/MarginContainer/HBoxContainer" unique_id=632035926]
 layout_mode = 2
 size_flags_horizontal = 8
 texture = ExtResource("12_jyi1d")
 expand_mode = 3
 stretch_mode = 5
+
+[connection signal="pressed" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/KillButton" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/KillButton" method="_on_pressed"]

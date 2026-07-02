@@ -21,7 +21,6 @@ func type() -> void:
 	var scale_factor = 1.0 + ((info.level**2)/8.0)
 	level = info.level
 	scale(scale_factor)
-	print("level: ", level)
 	
 func scale(factor):
 	sprite.scale = Vector2(og_sprite_scale*factor, og_sprite_scale*factor) 

@@ -7,3 +7,5 @@ eye merge
 * cooldown for spawning OR wait until collision shape sleeping before starting next
 * fix overflow somehow???
 * obstacles in jar
+* trigger explosion/IMPlosion tween on force kill
+* 
