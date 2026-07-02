@@ -7,7 +7,7 @@ extends Node2D
 @export var level2eye: EyeInfo
 @export var level3eye: EyeInfo
 
-var eye_collection = [
+@onready var eye_collection = [
 	level1eye,
 	level2eye,
 	level3eye,
@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 func spawn(level_temp: int) -> void: ##spawn eye of level at marker2d
 	var inst: Eye = eye_scene.instantiate()
 	inst.info = eye_collection[level_temp-1]
-	print("spawning level",level_temp)
+	print("spawning level",eye_collection[level_temp-1].level)
 	add_child(inst)
 	inst.position = Vector2(0.0, randf_range(-10.0,10.0))
 	
