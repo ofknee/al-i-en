@@ -6,11 +6,17 @@ extends Node2D
 @export var level1eye: EyeInfo
 @export var level2eye: EyeInfo
 @export var level3eye: EyeInfo
+@export var level4eye: EyeInfo
+@export var level5eye: EyeInfo
+@export var level6eye: EyeInfo
 
-@onready var eye_collection = [
+@onready var eye_collection = [ #TODO AUTOMATE THIS?
 	level1eye,
 	level2eye,
 	level3eye,
+	level4eye,
+	level5eye,
+	level6eye,
 ]
 
 func _ready() -> void:

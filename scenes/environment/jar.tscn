@@ -11,10 +11,12 @@ size = Vector2(286, 38)
 [node name="jar" type="Node2D" unique_id=87631032]
 
 [node name="JarSprite" type="Sprite2D" parent="." unique_id=475935047]
-position = Vector2(-48, 2)
+position = Vector2(-85, 2)
+scale = Vector2(2.0800009, 1)
 texture = ExtResource("1_comf0")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1390146709]
+scale = Vector2(2.1600008, 1)
 
 [node name="Outer" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=91363342]
 position = Vector2(-245, -314)

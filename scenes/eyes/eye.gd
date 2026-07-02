@@ -11,8 +11,8 @@ var level : int
 
 func _ready() -> void:
 	type()
-	await self.sleeping == true
-	print ("asleep")
+	#await self.sleeping == true
+	#print ("asleep")
 
 func type() -> void:
 	if info == null:

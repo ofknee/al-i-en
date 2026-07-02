@@ -21,6 +21,7 @@ scale = Vector2(0.04, 0.04)
 texture = ExtResource("2_r3l4q")
 region_enabled = true
 region_rect = Rect2(647, 643, 854, 838)
+region_filter_clip_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=315083143]
 shape = SubResource("CircleShape2D_g3y2c")
