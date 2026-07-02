@@ -45,4 +45,4 @@ func _on_button_up() -> void:
 
 
 func _on_pressed() -> void:
-	SignalBus.spawn_eye.emit(type)
+	SignalBus.spawn_eye.emit(type.level)

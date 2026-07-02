@@ -4,4 +4,7 @@ eye merge
 * buy more time???
 * timer
 * polaroid
-* 
+* sfx
+* cooldown for spawning
+* fix overflow somehow???
+* obstacles

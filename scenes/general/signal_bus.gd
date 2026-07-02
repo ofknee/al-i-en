@@ -1,6 +1,6 @@
 extends Node
 
-signal spawn_eye(eye: EyeInfo)
+signal spawn_eye(level: int)
 
 #
 ## Called when the node enters the scene tree for the first time.

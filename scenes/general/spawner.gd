@@ -3,14 +3,24 @@ extends Node2D
 @export var eye_scene: PackedScene
 @onready var spawn_point: Vector2 = $SpawnPoint.global_position
 
+@export var level1eye: EyeInfo
+@export var level2eye: EyeInfo
+@export var level3eye: EyeInfo
+
+var eye_collection = [
+	level1eye,
+	level2eye,
+	level3eye,
+]
+
 func _ready() -> void:
 	SignalBus.spawn_eye.connect(spawn) # Replace with function body.
 
 func _process(delta: float) -> void:
 	pass
 
-func spawn(info: EyeInfo) -> void:
+func spawn(level: int) -> void:
 	var inst: Eye = eye_scene.instantiate()
-	inst.info = info
+	inst.info = eye_collection[level]
 	add_child(inst)
 	inst.position = Vector2.ZERO

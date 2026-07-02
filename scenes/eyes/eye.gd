@@ -5,9 +5,9 @@ class_name Eye
 @onready var coll: CollisionShape2D = $CollisionShape2D
 var og_sprite_scale = 0.04
 var og_coll_scale = 17
+var level : int
 
 @export var info: EyeInfo = null
-
 
 func _ready() -> void:
 	type()
@@ -17,9 +17,18 @@ func type() -> void:
 		return
 	sprite.texture = info.texture
 	var scale_factor = 1.0 + ((info.level**2)/8.0)
-	print(scale_factor)
+	level = info.level
 	scale(scale_factor)
+	print("level: ", level)
 	
 func scale(factor):
 	sprite.scale = Vector2(og_sprite_scale*factor, og_sprite_scale*factor) 
 	coll.shape.radius = og_coll_scale*factor
+
+func _on_body_entered(body: Node) -> void:
+	if body is Eye:
+		if body.level == level:
+			print("collide!")
+			queue_free()
+		else:
+			print("collide no disappear")

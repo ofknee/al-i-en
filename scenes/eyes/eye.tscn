@@ -12,6 +12,8 @@ radius = 17.0
 
 [node name="eye" type="RigidBody2D" unique_id=591625421]
 physics_material_override = SubResource("PhysicsMaterial_r3l4q")
+contact_monitor = true
+max_contacts_reported = 20
 script = ExtResource("1_r3l4q")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=676384621]
@@ -22,3 +24,5 @@ region_rect = Rect2(647, 643, 854, 838)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=315083143]
 shape = SubResource("CircleShape2D_g3y2c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

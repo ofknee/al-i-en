@@ -75,15 +75,3 @@ type = ExtResource("5_th32y")
 [node name="Level3Button" parent="CanvasLayer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=663463377 instance=ExtResource("4_qkl7e")]
 layout_mode = 2
 type = ExtResource("6_btprj")
-
-[node name="Level1Button2" parent="CanvasLayer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=2067239330 instance=ExtResource("4_qkl7e")]
-layout_mode = 2
-type = ExtResource("4_6t4g7")
-
-[node name="Level2Button2" parent="CanvasLayer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1296618127 instance=ExtResource("4_qkl7e")]
-layout_mode = 2
-type = ExtResource("5_th32y")
-
-[node name="Level3Button2" parent="CanvasLayer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1040400021 instance=ExtResource("4_qkl7e")]
-layout_mode = 2
-type = ExtResource("6_btprj")
