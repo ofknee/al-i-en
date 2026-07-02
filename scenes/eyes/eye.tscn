@@ -4,16 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://c2ews26an1jnd" path="res://assets/eyes/level1.png" id="2_r3l4q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g3y2c"]
-radius = 24.020824
+resource_local_to_scene = true
+radius = 17.0
 
 [node name="eye" type="RigidBody2D" unique_id=591625421]
 script = ExtResource("1_r3l4q")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=315083143]
-shape = SubResource("CircleShape2D_g3y2c")
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=676384621]
-scale = Vector2(0.056877494, 0.056877494)
+scale = Vector2(0.04, 0.04)
 texture = ExtResource("2_r3l4q")
 region_enabled = true
 region_rect = Rect2(647, 643, 854, 838)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=315083143]
+shape = SubResource("CircleShape2D_g3y2c")
