@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b4612doc0i4ab"]
+
+[ext_resource type="Texture2D" uid="uid://jedh3rwj5ltr" path="res://assets/ui/progress/greybutton.png" id="1_vr8wr"]
+
+[node name="TimerBar" type="TextureProgressBar" unique_id=1344713530]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_under = ExtResource("1_vr8wr")
+texture_progress = ExtResource("1_vr8wr")
+tint_under = Color(0.78431374, 1, 0.77254903, 1)
+tint_progress = Color(1.5743836, 0.99900424, 0.87787175, 1)

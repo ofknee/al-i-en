@@ -13,6 +13,9 @@
 [ext_resource type="Script" uid="uid://c8jyltrtrq764" path="res://scenes/ui/currency_text.gd" id="11_ehwae"]
 [ext_resource type="Script" uid="uid://bffcsd856huo" path="res://scenes/ui/kill_button.gd" id="11_jyi1d"]
 [ext_resource type="Texture2D" uid="uid://duahv7mkim3xr" path="res://scenes/ui/coin.png" id="12_jyi1d"]
+[ext_resource type="Script" uid="uid://dmtbptwa3hqd5" path="res://scenes/ui/i_is_rich.gd" id="12_lared"]
+[ext_resource type="Script" uid="uid://ckwdrvxf5ae58" path="res://scenes/general/timer.gd" id="15_57chg"]
+[ext_resource type="Texture2D" uid="uid://jedh3rwj5ltr" path="res://assets/ui/progress/greybutton.png" id="16_wvtxl"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_43hlm"]
 a = Vector2(595.46436, -17.911621)
@@ -29,11 +32,11 @@ grow_vertical = 2
 [node name="env" type="Node2D" parent="." unique_id=1389023258]
 
 [node name="jar" parent="env" unique_id=87631032 instance=ExtResource("1_4m08x")]
-position = Vector2(879, 442.99997)
+position = Vector2(835, 443)
 scale = Vector2(0.54883826, 0.55)
 
 [node name="shelf" type="StaticBody2D" parent="env" unique_id=148999392]
-position = Vector2(1121, 208)
+position = Vector2(1065, 224)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="env/shelf" unique_id=1692260698]
 rotation = 2.883661
@@ -47,7 +50,7 @@ scale = Vector2(0.22048646, 0.20297642)
 texture = ExtResource("3_qkl7e")
 
 [node name="Spawner" parent="." unique_id=733594041 instance=ExtResource("1_gbbem")]
-position = Vector2(1039, 112)
+position = Vector2(983, 128)
 level4eye = ExtResource("4_6w4s0")
 level5eye = ExtResource("5_18j88")
 level6eye = ExtResource("6_ehwae")
@@ -100,6 +103,12 @@ layout_mode = 2
 text = "force kill"
 script = ExtResource("11_jyi1d")
 
+[node name="IIsRich" type="Button" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=285016823]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "i is rich"
+script = ExtResource("12_lared")
+
 [node name="Bank" type="Control" parent="CanvasLayer" unique_id=942632118]
 custom_minimum_size = Vector2(600, 100)
 layout_mode = 3
@@ -139,4 +148,45 @@ texture = ExtResource("12_jyi1d")
 expand_mode = 3
 stretch_mode = 5
 
+[node name="TimeLimit" type="Control" parent="CanvasLayer" unique_id=587802596]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -600.0
+offset_top = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.22120869, 0.22120869)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("15_57chg")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/TimeLimit" unique_id=1653453800]
+one_shot = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TimeLimit" unique_id=392898649]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1192.201
+offset_top = -1790.1647
+offset_right = -266.20105
+offset_bottom = -1556.1647
+grow_horizontal = 0
+
+[node name="TimerBar" type="TextureProgressBar" parent="CanvasLayer/TimeLimit/MarginContainer" unique_id=1344713530]
+layout_mode = 2
+texture_under = ExtResource("16_wvtxl")
+texture_progress = ExtResource("16_wvtxl")
+tint_under = Color(0.78431374, 1, 0.77254903, 1)
+tint_progress = Color(1.5743836, 0.99900424, 0.87787175, 1)
+
 [connection signal="pressed" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/KillButton" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/KillButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/IIsRich" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/IIsRich" method="_on_pressed"]
+[connection signal="timeout" from="CanvasLayer/TimeLimit/Timer" to="CanvasLayer/TimeLimit" method="_on_timer_timeout"]

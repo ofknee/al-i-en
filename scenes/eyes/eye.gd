@@ -18,7 +18,7 @@ func type() -> void:
 	if info == null:
 		return
 	sprite.texture = info.texture
-	var scale_factor = 1.0 + ((info.level**2)/8.0)
+	var scale_factor = 1.0 + ((info.level**1.5)/4.0)
 	level = info.level
 	scale(scale_factor)
 	

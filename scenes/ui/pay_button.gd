@@ -1,9 +1,13 @@
 ##general button to buy eye
 extends TextureButton
-
-#hover overlay
-const COLOR_PRESSED := Color(0.9, 0.9, 0.9, 1.0)
+##paybutton type
 @export var type: EyeInfo
+##paying/price
+@onready var price : int = type.value * (1.5 * Global.round + 1)## TODO add increasing factor based on round?
+@onready var label = $RichTextLabel
+@onready var coins : int = Global.coins
+##hover overlay
+const COLOR_PRESSED := Color(0.9, 0.9, 0.9, 1.0)
 var tween: Tween
 
 func _on_mouse_entered() -> void: ##hover tween
@@ -38,7 +42,17 @@ func _on_button_up() -> void: ##pressed to hover tween
 	self_modulate = Color.WHITE
 
 func _on_pressed() -> void:  ##spawn eye laccording to button type
-	SignalBus.spawn_eye.emit(type.level)
+	if payable():
+		Global.coins -= price
+		SignalBus.spawn_eye.emit(type.level)
+	else:
+		print("ur broke lol")
 
 func payable() -> bool:
-	return false
+	if price <= Global.coins:
+		return true
+	else:
+		return false
+
+func _physics_process(delta: float) -> void:
+	label.text = str(price)

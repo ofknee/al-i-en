@@ -9,7 +9,6 @@ extends Node2D
 @export var level4eye: EyeInfo
 @export var level5eye: EyeInfo
 @export var level6eye: EyeInfo
-
 @onready var eye_collection = [ #TODO AUTOMATE THIS?
 	level1eye,
 	level2eye,
@@ -18,6 +17,8 @@ extends Node2D
 	level5eye,
 	level6eye,
 ]
+
+var value_dampening = 2
 
 func _ready() -> void:
 	SignalBus.spawn_eye.connect(spawn_new)
@@ -47,6 +48,6 @@ func kill_all_eyes():
 		if child is Eye: 
 			tally_coins += child.info.value
 			child.queue_free()
-	Global.coins += tally_coins/5
+	Global.coins += tally_coins/value_dampening
 	Global.round += 1
 	print("round:",Global.round)

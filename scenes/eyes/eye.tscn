@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c2ews26an1jnd" path="res://assets/eyes/level1.png" id="2_r3l4q"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r3l4q"]
+friction = 2.0
+rough = true
 bounce = 0.3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g3y2c"]

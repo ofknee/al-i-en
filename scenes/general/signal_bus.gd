@@ -2,7 +2,9 @@ extends Node
 
 signal spawn_eye(level: int)
 signal merge_eye(level: int, merge_position : Vector2)
-signal force_kill()
+signal force_kill() # make disable psawning and wait until everything done moving to kill
+signal start_timer(duration: float)
+signal timer_done()
 
 #
 ## Called when the node enters the scene tree for the first time.
