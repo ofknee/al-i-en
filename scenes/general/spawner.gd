@@ -18,7 +18,7 @@ extends Node2D
 	level6eye,
 ]
 
-var value_dampening = 2
+var value_dampening = 1
 
 func _ready() -> void:
 	SignalBus.spawn_eye.connect(spawn_new)
@@ -51,3 +51,4 @@ func kill_all_eyes():
 	Global.coins += tally_coins/value_dampening
 	Global.round += 1
 	print("round:",Global.round)
+	SignalBus.start_timer.emit(20.0) ##HACK TESTING FIXME TODO

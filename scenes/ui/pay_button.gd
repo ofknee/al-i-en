@@ -3,12 +3,16 @@ extends TextureButton
 ##paybutton type
 @export var type: EyeInfo
 ##paying/price
-@onready var price : int = type.value * (1.5 * Global.round + 1)## TODO add increasing factor based on round?
+@onready var price : int = type.value## TODO add increasing factor based on round?
 @onready var label = $RichTextLabel
 @onready var coins : int = Global.coins
 ##hover overlay
 const COLOR_PRESSED := Color(0.9, 0.9, 0.9, 1.0)
 var tween: Tween
+
+func _ready() -> void:
+	SignalBus.force_kill.connect(update_price)
+	label.text = str(price)
 
 func _on_mouse_entered() -> void: ##hover tween
 	if tween:
@@ -54,5 +58,6 @@ func payable() -> bool:
 	else:
 		return false
 
-func _physics_process(delta: float) -> void:
+func update_price():
+	price *= 2 
 	label.text = str(price)
