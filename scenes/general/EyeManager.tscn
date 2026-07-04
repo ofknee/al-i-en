@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://076bv3dy73a4"]
+
+[ext_resource type="Script" uid="uid://dk8qy5b2icb14" path="res://scenes/general/eye_manager.gd" id="1_qrres"]
+[ext_resource type="PackedScene" uid="uid://b8qm1kv1edj1m" path="res://scenes/eyes/eye.tscn" id="2_s4eic"]
+[ext_resource type="Resource" uid="uid://qhtnlm64qf7d" path="res://scenes/eyes/level1.tres" id="3_cl61s"]
+[ext_resource type="Resource" uid="uid://dfsgqyvm8460b" path="res://scenes/eyes/level2.tres" id="4_5oxik"]
+[ext_resource type="Resource" uid="uid://cdqupxruo0msa" path="res://scenes/eyes/level3.tres" id="5_t43ll"]
+[ext_resource type="Resource" uid="uid://b6vw8vrq8dm5i" path="res://scenes/eyes/level4.tres" id="6_l01da"]
+[ext_resource type="Resource" uid="uid://ipy83l5up4vf" path="res://scenes/eyes/level5.tres" id="7_tayev"]
+[ext_resource type="Resource" uid="uid://cw55id4dbpbte" path="res://scenes/eyes/level6.tres" id="8_4kh2i"]
+[ext_resource type="Resource" uid="uid://bsebt03oxnfmu" path="res://scenes/eyes/level7.tres" id="9_fnxkj"]
+[ext_resource type="Resource" uid="uid://dyjkijc4xx0yu" path="res://scenes/eyes/level8.tres" id="10_5g4bi"]
+[ext_resource type="Resource" uid="uid://bjfd2n3ushw5c" path="res://scenes/eyes/level9.tres" id="11_2d8k7"]
+
+[node name="EyeManager" type="Node2D" unique_id=733594041]
+script = ExtResource("1_qrres")
+eye_scene = ExtResource("2_s4eic")
+level1eye = ExtResource("3_cl61s")
+level2eye = ExtResource("4_5oxik")
+level3eye = ExtResource("5_t43ll")
+level4eye = ExtResource("6_l01da")
+level5eye = ExtResource("7_tayev")
+level6eye = ExtResource("8_4kh2i")
+level7eye = ExtResource("9_fnxkj")
+level8eye = ExtResource("10_5g4bi")
+level9eye = ExtResource("11_2d8k7")
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1843559101]

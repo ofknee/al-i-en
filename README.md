@@ -19,4 +19,10 @@ and not random you choose where to drop
 * anything at top gets deleted?
 * 0.5 wait for spawn
 
+* how stop overflow
+* how limit sell to infinite win?
+* giant eye upon win
+*overall stats = timer, number of sells
+
 * action isn't inherently fun, needs to be fun otherwise
+*always choose where it goes??? just suika with a shop then????

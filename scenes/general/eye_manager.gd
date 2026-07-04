@@ -1,4 +1,5 @@
 extends Node2D
+class_name EyeManager
 
 @export var eye_scene: PackedScene
 @onready var spawn_point: Vector2 = $SpawnPoint.global_position
@@ -24,7 +25,7 @@ extends Node2D
 	level9eye
 ]
 
-var value_dampening = 0.5
+var value_dampening = 2
 
 func _ready() -> void:
 	SignalBus.spawn_eye.connect(spawn_new)

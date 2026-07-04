@@ -1,19 +1,23 @@
-##general button to buy eye
 extends TextureButton
-##paybutton type
-@export var type: EyeInfo
-##paying/price
-@onready var price : int = type.value## TODO add increasing factor based on round?
+
 @onready var label = $RichTextLabel
 @onready var coins : int = Global.coins
-##hover overlay
+#@onready var eye_collection = EyeManager.eye_collection
+@export var level1 : EyeInfo
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+## interaction tweens
 const COLOR_PRESSED := Color(0.9, 0.9, 0.9, 1.0)
 var tween: Tween
-
-func _ready() -> void:
-	SignalBus.force_kill.connect(reset_price)
-	label.text = str(price)
-
 func _on_mouse_entered() -> void: ##hover tween
 	if tween:
 		tween.kill()
@@ -44,26 +48,3 @@ func _on_button_up() -> void: ##pressed to hover tween
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "scale", Vector2(1.1, 1.1), 0.1)
 	self_modulate = Color.WHITE
-
-func _on_pressed() -> void:  ##spawn eye laccording to button type
-	if payable():
-		Global.coins -= price
-		SignalBus.spawn_eye.emit(type.level)
-		update_price()
-	else:
-		print("ur broke lol")
-
-func payable() -> bool:
-	if price <= Global.coins:
-		return true
-	else:
-		return false
-
-func update_price():
-	price += (type.value**1.3)/7
-	label.text = str(price)
-
-func reset_price():
-	#price = type.value
-	#label.text = str(price)
-	pass
