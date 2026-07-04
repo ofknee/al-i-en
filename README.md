@@ -9,3 +9,12 @@ eye merge
 * obstacles in jar
 * trigger explosion/IMPlosion tween on force kill
 * 
+
+## reconstruction/balancing
+* on click increase price
+* reset/double og after sell???????
+* drop at random area up top???
+* anything at top gets deleted?
+* 0.5 wait for spawn
+
+* action isn't inherently fun, needs to be fun otherwise

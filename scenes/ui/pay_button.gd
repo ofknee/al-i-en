@@ -59,5 +59,5 @@ func payable() -> bool:
 		return false
 
 func update_price():
-	price *= 2 
+	price += type.value
 	label.text = str(price)

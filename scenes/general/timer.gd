@@ -3,8 +3,8 @@ extends Control
 @onready var timer = $Timer
 @onready var bar = $MarginContainer/TimerBar
 
-func _ready() -> void:
-	SignalBus.start_timer.connect(start_timer)
+# _ready() -> void:
+#	SignalBus.start_timer.connect(start_timer)
 	
 	
 func _process(delta: float) -> void:

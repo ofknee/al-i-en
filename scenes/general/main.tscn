@@ -36,6 +36,7 @@ position = Vector2(835, 443)
 scale = Vector2(0.54883826, 0.55)
 
 [node name="shelf" type="StaticBody2D" parent="env" unique_id=148999392]
+visible = false
 position = Vector2(1065, 224)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="env/shelf" unique_id=1692260698]
@@ -50,7 +51,7 @@ scale = Vector2(0.22048646, 0.20297642)
 texture = ExtResource("3_qkl7e")
 
 [node name="Spawner" parent="." unique_id=733594041 instance=ExtResource("1_gbbem")]
-position = Vector2(983, 128)
+position = Vector2(767, 156)
 level4eye = ExtResource("4_6w4s0")
 level5eye = ExtResource("5_18j88")
 level6eye = ExtResource("6_ehwae")
@@ -149,6 +150,7 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="TimeLimit" type="Control" parent="CanvasLayer" unique_id=587802596]
+visible = false
 custom_minimum_size = Vector2(600, 100)
 layout_mode = 3
 anchors_preset = 3

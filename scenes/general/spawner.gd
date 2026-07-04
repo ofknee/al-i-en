@@ -34,7 +34,7 @@ func spawn_new(level: int) -> void: ##spawn eye @ top
 	inst.info = eye_collection[level-1]
 	#print("spawning level",eye_collection[level-1].level)
 	add_child(inst)
-	inst.position = Vector2(randf_range(0.0,40.0), randf_range(-10.0,40.0))
+	inst.position = Vector2(randf_range(-200.0,200.0), 0.0)
 	
 func spawn_merged(level: int, merge_position : Vector2):
 	var inst: Eye = eye_scene.instantiate()
