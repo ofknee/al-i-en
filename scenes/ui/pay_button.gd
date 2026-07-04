@@ -11,7 +11,7 @@ const COLOR_PRESSED := Color(0.9, 0.9, 0.9, 1.0)
 var tween: Tween
 
 func _ready() -> void:
-	SignalBus.force_kill.connect(update_price)
+	#SignalBus.force_kill.connect(update_price)
 	label.text = str(price)
 
 func _on_mouse_entered() -> void: ##hover tween
@@ -49,6 +49,7 @@ func _on_pressed() -> void:  ##spawn eye laccording to button type
 	if payable():
 		Global.coins -= price
 		SignalBus.spawn_eye.emit(type.level)
+		update_price()
 	else:
 		print("ur broke lol")
 
@@ -59,5 +60,5 @@ func payable() -> bool:
 		return false
 
 func update_price():
-	price += type.value
+	price += type.value/5
 	label.text = str(price)

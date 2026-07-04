@@ -11,6 +11,8 @@ eye merge
 * 
 
 ## reconstruction/balancing
+* random button?
+and not random you choose where to drop
 * on click increase price
 * reset/double og after sell???????
 * drop at random area up top???

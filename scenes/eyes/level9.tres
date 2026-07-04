@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EyeInfo" format=3 uid="uid://bjfd2n3ushw5c"]
+
+[ext_resource type="Script" uid="uid://cduu5qqh357kf" path="res://scenes/eyes/eye_info.gd" id="1_jplw6"]
+[ext_resource type="Texture2D" uid="uid://do5hm4tkceyho" path="res://assets/eyes/level9.png" id="2_jplw6"]
+
+[resource]
+script = ExtResource("1_jplw6")
+level = 9
+texture = ExtResource("2_jplw6")
+value = 2000000
+metadata/_custom_type_script = "uid://cduu5qqh357kf"

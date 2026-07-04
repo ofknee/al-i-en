@@ -9,6 +9,9 @@ extends Node2D
 @export var level4eye: EyeInfo
 @export var level5eye: EyeInfo
 @export var level6eye: EyeInfo
+@export var level7eye: EyeInfo
+@export var level8eye: EyeInfo
+@export var level9eye: EyeInfo
 @onready var eye_collection = [ #TODO AUTOMATE THIS?
 	level1eye,
 	level2eye,
@@ -16,9 +19,12 @@ extends Node2D
 	level4eye,
 	level5eye,
 	level6eye,
+	level7eye,
+	level8eye,
+	level9eye
 ]
 
-var value_dampening = 1
+var value_dampening = 0.5
 
 func _ready() -> void:
 	SignalBus.spawn_eye.connect(spawn_new)
@@ -34,7 +40,7 @@ func spawn_new(level: int) -> void: ##spawn eye @ top
 	inst.info = eye_collection[level-1]
 	#print("spawning level",eye_collection[level-1].level)
 	add_child(inst)
-	inst.position = Vector2(randf_range(-200.0,200.0), 0.0)
+	inst.position = Vector2(randf_range(-150.0,150.0), 0.0)
 	
 func spawn_merged(level: int, merge_position : Vector2):
 	var inst: Eye = eye_scene.instantiate()
