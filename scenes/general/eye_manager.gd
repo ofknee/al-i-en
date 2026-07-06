@@ -45,9 +45,9 @@ func spawn_new(level: int, location : String) -> void: ##spawn eye @ top
 	add_child(inst)
 	match location:
 		"left":
-			inst.position = Vector2(randf_range(-1*(half_width),0.0), 0.0)
+			inst.position = Vector2(randf_range(-1*(half_width),-20.0), 0.0)
 		"right":
-			inst.position = Vector2(randf_range(0.0,half_width), 0.0)
+			inst.position = Vector2(randf_range(20.0,half_width), 0.0)
 		"random":
 			inst.position = Vector2(randf_range(-1*(half_width),half_width), 0.0)
 	
@@ -59,9 +59,9 @@ func spawn_merged(level: int, merge_position : Vector2):
 		add_child(inst)
 		inst.position = merge_position
 		Global.coins += inst.info.value/value_dampening
-		Global.score += inst.info.value
+		Global.score += inst.info.value/(value_dampening*2)
 	else:
-		Global.score +=  eye_collection[-1].info.value * 2
+		Global.score +=  eye_collection[-1].value * 4
 		pass
 
 func kill_all_eyes():

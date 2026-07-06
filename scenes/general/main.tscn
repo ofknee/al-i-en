@@ -21,9 +21,13 @@
 [ext_resource type="Resource" uid="uid://bjfd2n3ushw5c" path="res://scenes/eyes/level9.tres" id="14_ekdj5"]
 [ext_resource type="Script" uid="uid://ckwdrvxf5ae58" path="res://scenes/general/timer.gd" id="15_57chg"]
 [ext_resource type="Texture2D" uid="uid://jedh3rwj5ltr" path="res://assets/ui/progress/greybutton.png" id="16_wvtxl"]
+[ext_resource type="Script" uid="uid://bs81chytk1xlu" path="res://scenes/general/score_text.gd" id="22_l5l13"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_17ntd"]
 texture = ExtResource("11_hk7ck")
+
+[sub_resource type="Theme" id="Theme_43hlm"]
+default_font = ExtResource("11_ekdj5")
 
 [node name="main" type="Control" unique_id=2147414951]
 layout_mode = 3
@@ -36,11 +40,11 @@ grow_vertical = 2
 [node name="env" type="Node2D" parent="." unique_id=1389023258]
 
 [node name="jar" parent="env" unique_id=87631032 instance=ExtResource("1_4m08x")]
-position = Vector2(835, 443)
-scale = Vector2(0.54883826, 0.55)
+position = Vector2(750, 408)
+scale = Vector2(0.45325017, 0.45420963)
 
 [node name="Spawner" parent="." unique_id=733594041 instance=ExtResource("1_gbbem")]
-position = Vector2(767, 156)
+position = Vector2(742, 148)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1879695635]
 
@@ -227,7 +231,7 @@ script = ExtResource("12_lared")
 [node name="BuySections" type="Control" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1032142820]
 layout_mode = 2
 
-[node name="Bank" type="Control" parent="CanvasLayer" unique_id=942632118]
+[node name="Stats" type="Control" parent="CanvasLayer" unique_id=942632118]
 custom_minimum_size = Vector2(600, 100)
 layout_mode = 3
 anchors_preset = 1
@@ -236,22 +240,30 @@ anchor_right = 1.0
 grow_horizontal = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = SubResource("Theme_43hlm")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Bank" unique_id=1845312743]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Stats" unique_id=1845312743]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -1.0
+offset_left = -500.0
+offset_bottom = 100.0
 grow_horizontal = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Bank/MarginContainer" unique_id=1574073066]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Stats/MarginContainer" unique_id=2012865507]
 layout_mode = 2
 
-[node name="CurrencyText" type="RichTextLabel" parent="CanvasLayer/Bank/MarginContainer/HBoxContainer" unique_id=1171032743]
+[node name="Bank" type="HBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer" unique_id=1574073066]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CurrencyText" type="RichTextLabel" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/Bank" unique_id=1171032743]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("11_ekdj5")
 theme_override_font_sizes/normal_font_size = 75
 text = "123456789"
 scroll_active = false
@@ -259,7 +271,29 @@ horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("11_ehwae")
 
-[node name="Sprite2D" type="TextureRect" parent="CanvasLayer/Bank/MarginContainer/HBoxContainer" unique_id=632035926]
+[node name="Sprite2D" type="TextureRect" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/Bank" unique_id=632035926]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("12_jyi1d")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Score" type="HBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer" unique_id=367155065]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScoreText" type="RichTextLabel" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/Score" unique_id=611637999]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 75
+text = "123456789"
+scroll_active = false
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("22_l5l13")
+
+[node name="Sprite2D" type="TextureRect" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/Score" unique_id=579615236]
 layout_mode = 2
 size_flags_horizontal = 8
 texture = ExtResource("12_jyi1d")

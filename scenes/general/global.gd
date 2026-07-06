@@ -8,6 +8,10 @@ signal currency_changed(new_currency: int)
 var coins: int = 67: ##starting money
 	set(val):
 		coins = val
-		score += val
 		currency_changed.emit(val)
-var score : int = 0
+
+signal score_changed(new_currency: int)
+var score : int = 0:
+	set(val):
+		score = val
+		score_changed.emit(val)
