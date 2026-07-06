@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://fft5gn6vyuab"]
 
 [ext_resource type="PackedScene" uid="uid://cpxorq2xxxiym" path="res://scenes/environment/jar.tscn" id="1_4m08x"]
-[ext_resource type="PackedScene" uid="uid://cit277u2pv5lb" path="res://scenes/general/EyeManager.tscn" id="1_gbbem"]
-[ext_resource type="Texture2D" uid="uid://2jyg3xj5odmb" path="res://assets/env/shelf.png" id="3_qkl7e"]
+[ext_resource type="PackedScene" uid="uid://076bv3dy73a4" path="res://scenes/general/EyeManager.tscn" id="1_gbbem"]
 [ext_resource type="Resource" uid="uid://qhtnlm64qf7d" path="res://scenes/eyes/level1.tres" id="4_6t4g7"]
 [ext_resource type="Resource" uid="uid://b6vw8vrq8dm5i" path="res://scenes/eyes/level4.tres" id="4_6w4s0"]
 [ext_resource type="PackedScene" uid="uid://bw645k3ex02ay" path="res://scenes/ui/pay_button.tscn" id="4_qkl7e"]
@@ -22,9 +21,8 @@
 [ext_resource type="Script" uid="uid://ckwdrvxf5ae58" path="res://scenes/general/timer.gd" id="15_57chg"]
 [ext_resource type="Texture2D" uid="uid://jedh3rwj5ltr" path="res://assets/ui/progress/greybutton.png" id="16_wvtxl"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_43hlm"]
-a = Vector2(595.46436, -17.911621)
-b = Vector2(-512.4429, -14.380615)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_17ntd"]
+texture = ExtResource("11_hk7ck")
 
 [node name="main" type="Control" unique_id=2147414951]
 layout_mode = 3
@@ -40,45 +38,8 @@ grow_vertical = 2
 position = Vector2(835, 443)
 scale = Vector2(0.54883826, 0.55)
 
-[node name="shelf" type="StaticBody2D" parent="env" unique_id=148999392]
-position = Vector2(721, 435.00003)
-scale = Vector2(0.36, 0.36)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="env/shelf" unique_id=1692260698]
-rotation = 2.883661
-scale = Vector2(0.22047535, 0.20298849)
-skew = -0.004259467
-shape = SubResource("SegmentShape2D_43hlm")
-
-[node name="Shelf" type="Sprite2D" parent="env/shelf" unique_id=230971083]
-rotation = -0.2342534
-scale = Vector2(0.22048646, 0.20297642)
-texture = ExtResource("3_qkl7e")
-
-[node name="shelf2" type="StaticBody2D" parent="env" unique_id=2032585051]
-position = Vector2(799, 448)
-rotation = 0.731531
-scale = Vector2(0.36, 0.36)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="env/shelf2" unique_id=1785591316]
-rotation = 2.883661
-scale = Vector2(0.22047535, 0.20298849)
-skew = -0.004259467
-shape = SubResource("SegmentShape2D_43hlm")
-
-[node name="Shelf" type="Sprite2D" parent="env/shelf2" unique_id=961628005]
-rotation = -0.2342534
-scale = Vector2(0.22048646, 0.20297642)
-texture = ExtResource("3_qkl7e")
-
 [node name="Spawner" parent="." unique_id=733594041 instance=ExtResource("1_gbbem")]
 position = Vector2(767, 156)
-level4eye = ExtResource("4_6w4s0")
-level5eye = ExtResource("5_18j88")
-level6eye = ExtResource("6_ehwae")
-level7eye = ExtResource("12_umqea")
-level8eye = ExtResource("13_hk7ck")
-level9eye = ExtResource("14_ekdj5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1879695635]
 
@@ -91,10 +52,11 @@ anchor_bottom = 1.0
 grow_vertical = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Shop" unique_id=1506808134]
+propagate_maximum_size = true
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 338.0
+offset_right = 2056.0
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -107,6 +69,7 @@ size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer" unique_id=921072635]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="KillButton" type="Button" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1155501836]
 custom_minimum_size = Vector2(0, 50)
@@ -114,11 +77,15 @@ layout_mode = 2
 text = "Sell???"
 script = ExtResource("11_jyi1d")
 
-[node name="RandomSpawn" type="TextureButton" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=599862349]
-modulate = Color(1.0737633, 0.85558397, 1.0737633, 1)
+[node name="RandomSpawn" type="Button" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=618550405]
+self_modulate = Color(0, 0.82872725, 1.9216759, 1)
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
-texture_normal = ExtResource("11_hk7ck")
+theme_override_styles/normal = SubResource("StyleBoxTexture_17ntd")
 script = ExtResource("12_ekdj5")
+level1 = ExtResource("4_6t4g7")
+level2 = ExtResource("5_th32y")
+level3 = ExtResource("6_btprj")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" unique_id=1611006514]
 layout_mode = 1
@@ -136,39 +103,57 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ButtonLevel1" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1306864685 instance=ExtResource("4_qkl7e")]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
+size_flags_horizontal = 0
 type = ExtResource("4_6t4g7")
 
 [node name="ButtonLevel2" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=176351069 instance=ExtResource("4_qkl7e")]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
+size_flags_horizontal = 0
 type = ExtResource("5_th32y")
 
 [node name="ButtonLevel3" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=663463377 instance=ExtResource("4_qkl7e")]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
+size_flags_horizontal = 0
 type = ExtResource("6_btprj")
 
 [node name="ButtonLevel4" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1023300500 instance=ExtResource("4_qkl7e")]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
+size_flags_horizontal = 0
 type = ExtResource("4_6w4s0")
 
 [node name="ButtonLevel5" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=2050389659 instance=ExtResource("4_qkl7e")]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
+size_flags_horizontal = 0
 type = ExtResource("5_18j88")
 
 [node name="ButtonLevel6" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1405200713 instance=ExtResource("4_qkl7e")]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
+size_flags_horizontal = 0
 type = ExtResource("6_ehwae")
 
 [node name="ButtonLevel7" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1811989060 instance=ExtResource("4_qkl7e")]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
+size_flags_horizontal = 0
 type = ExtResource("12_umqea")
 
 [node name="ButtonLevel8" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=214837402 instance=ExtResource("4_qkl7e")]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
+size_flags_horizontal = 0
 type = ExtResource("13_hk7ck")
 
 [node name="ButtonLevel9" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=338252178 instance=ExtResource("4_qkl7e")]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
+size_flags_horizontal = 0
 type = ExtResource("14_ekdj5")
 
 [node name="IIsRich" type="Button" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=285016823]
@@ -257,5 +242,10 @@ tint_under = Color(0.78431374, 1, 0.77254903, 1)
 tint_progress = Color(1.5743836, 0.99900424, 0.87787175, 1)
 
 [connection signal="pressed" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/KillButton" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/KillButton" method="_on_pressed"]
+[connection signal="button_down" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" method="_on_button_down"]
+[connection signal="button_up" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" method="_on_button_up"]
+[connection signal="mouse_entered" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/IIsRich" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/IIsRich" method="_on_pressed"]
 [connection signal="timeout" from="CanvasLayer/TimeLimit/Timer" to="CanvasLayer/TimeLimit" method="_on_timer_timeout"]

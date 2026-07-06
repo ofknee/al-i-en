@@ -23,7 +23,9 @@ class_name EyeManager
 	level7eye,
 	level8eye,
 	level9eye
-]
+] ##TODO IS THERE A BETTER WAY TO DO THIS????
+
+var half_width = 150
 
 var value_dampening = 2
 
@@ -33,15 +35,22 @@ func _ready() -> void:
 	SignalBus.force_kill.connect(kill_all_eyes)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
-func spawn_new(level: int) -> void: ##spawn eye @ top
+func spawn_new(level: int, location : String) -> void: ##spawn eye @ top
 	var inst: Eye = eye_scene.instantiate()
 	inst.info = eye_collection[level-1]
 	#print("spawning level",eye_collection[level-1].level)
 	add_child(inst)
-	inst.position = Vector2(randf_range(-150.0,150.0), 0.0)
+	match location:
+		"left":
+			inst.position = Vector2(randf_range(-1*(half_width),0.0), 0.0)
+		"right":
+			inst.position = Vector2(randf_range(0.0,half_width), 0.0)
+		"random":
+			inst.position = Vector2(randf_range(-1*(half_width),half_width), 0.0)
+	
 	
 func spawn_merged(level: int, merge_position : Vector2):
 	var inst: Eye = eye_scene.instantiate()
@@ -55,7 +64,7 @@ func kill_all_eyes():
 		if child is Eye: 
 			tally_coins += child.info.value
 			child.queue_free()
+	@warning_ignore("integer_division")
 	Global.coins += tally_coins/value_dampening
-	Global.round += 1
-	print("round:",Global.round)
+	Global.sells += 1
 	SignalBus.start_timer.emit(20.0) ##HACK TESTING FIXME TODO

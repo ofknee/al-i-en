@@ -23,6 +23,7 @@ and not random you choose where to drop
 * how limit sell to infinite win?
 * giant eye upon win
 *overall stats = timer, number of sells
+* half half
 
 * action isn't inherently fun, needs to be fun otherwise
 *always choose where it goes??? just suika with a shop then????
