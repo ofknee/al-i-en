@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://cw55id4dbpbte" path="res://scenes/eyes/level6.tres" id="6_ehwae"]
 [ext_resource type="PackedScene" uid="uid://dmjoqhcaxm2xl" path="res://scenes/ui/section.tscn" id="9_hk7ck"]
 [ext_resource type="Script" uid="uid://c8jyltrtrq764" path="res://scenes/ui/currency_text.gd" id="11_ehwae"]
+[ext_resource type="FontFile" uid="uid://da3pvxrfh3uvt" path="res://assets/ui/fonts/CatDebtcopy.ttf" id="11_ekdj5"]
 [ext_resource type="Texture2D" uid="uid://ga4f5rlh6lmc" path="res://assets/ui/button.png" id="11_hk7ck"]
 [ext_resource type="Script" uid="uid://bffcsd856huo" path="res://scenes/ui/kill_button.gd" id="11_jyi1d"]
 [ext_resource type="Script" uid="uid://dn73p4j6wurn" path="res://scenes/ui/random_spawn.gd" id="12_ekdj5"]
@@ -126,6 +127,38 @@ vertical_alignment = 1
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
+[node name="Cooldown" type="Control" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=587802596]
+visible = false
+custom_minimum_size = Vector2(0, 20)
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("15_57chg")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/Cooldown" unique_id=1653453800]
+one_shot = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/Cooldown" unique_id=392898649]
+custom_minimum_size = Vector2(300, 30)
+custom_maximum_size = Vector2(300, 30)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimerBar" type="TextureProgressBar" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/Cooldown/MarginContainer" unique_id=1344713530]
+custom_maximum_size = Vector2(300, 30)
+layout_mode = 2
+texture_under = ExtResource("16_wvtxl")
+texture_progress = ExtResource("16_wvtxl")
+tint_under = Color(0.78431374, 1, 0.77254903, 1)
+tint_progress = Color(1.5743836, 0.99900424, 0.87787175, 1)
+
 [node name="KillButton" type="Button" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1155501836]
 visible = false
 custom_minimum_size = Vector2(0, 50)
@@ -134,9 +167,10 @@ text = "Sell???"
 script = ExtResource("11_jyi1d")
 
 [node name="RandomSpawn" type="Button" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=618550405]
-self_modulate = Color(0, 0.82872725, 1.9216759, 1)
+self_modulate = Color(0, 0.829, 1.922, 1)
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
+offset_transform_enabled = true
 theme_override_styles/normal = SubResource("StyleBoxTexture_17ntd")
 script = ExtResource("12_ekdj5")
 level1 = ExtResource("4_6t4g7")
@@ -148,13 +182,21 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -5.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9988718, 1)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
 theme_override_colors/default_color = Color(1.1183037, 1.1183037, 1.1183037, 1)
-text = "Spawn Basic Eye"
+theme_override_colors/font_shadow_color = Color(0, 0.2585, 0.33, 0.90588236)
+theme_override_constants/shadow_outline_size = 7
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/normal_font = ExtResource("11_ekdj5")
+theme_override_font_sizes/normal_font_size = 53
+text = "FREE EYE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -242,46 +284,7 @@ texture = ExtResource("12_jyi1d")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="TimeLimit" type="Control" parent="CanvasLayer" unique_id=587802596]
-visible = false
-custom_minimum_size = Vector2(600, 100)
-layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -600.0
-offset_top = -100.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(0.22120869, 0.22120869)
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("15_57chg")
-
-[node name="Timer" type="Timer" parent="CanvasLayer/TimeLimit" unique_id=1653453800]
-one_shot = true
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TimeLimit" unique_id=392898649]
-custom_minimum_size = Vector2(500, 100)
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -1192.201
-offset_top = -1790.1647
-offset_right = -266.20105
-offset_bottom = -1556.1647
-grow_horizontal = 0
-
-[node name="TimerBar" type="TextureProgressBar" parent="CanvasLayer/TimeLimit/MarginContainer" unique_id=1344713530]
-layout_mode = 2
-texture_under = ExtResource("16_wvtxl")
-texture_progress = ExtResource("16_wvtxl")
-tint_under = Color(0.78431374, 1, 0.77254903, 1)
-tint_progress = Color(1.5743836, 0.99900424, 0.87787175, 1)
-
+[connection signal="timeout" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/Cooldown/Timer" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/Cooldown" method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/KillButton" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/KillButton" method="_on_pressed"]
 [connection signal="button_down" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" method="_on_button_down"]
 [connection signal="button_up" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" method="_on_button_up"]
@@ -289,4 +292,3 @@ tint_progress = Color(1.5743836, 0.99900424, 0.87787175, 1)
 [connection signal="mouse_exited" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/IIsRich" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/IIsRich" method="_on_pressed"]
-[connection signal="timeout" from="CanvasLayer/TimeLimit/Timer" to="CanvasLayer/TimeLimit" method="_on_timer_timeout"]

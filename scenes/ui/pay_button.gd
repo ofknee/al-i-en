@@ -18,7 +18,7 @@ var tween: Tween
 func _ready() -> void:
 	SignalBus.force_kill.connect(reset_price)
 	location = get_location()
-	Global.currency_changed.connect(payable)
+	Global.currency_changed.connect(payable_redirect) #HACK
 	
 	#HACK stylebox
 	var normal_style = get_theme_stylebox("normal")
@@ -60,17 +60,20 @@ func _on_button_up() -> void: ##pressed to hover tween
 
 func _on_pressed() -> void:  ##spawn eye laccording to button type
 	if payable():
-		Global.coins -= price
-		SignalBus.spawn_eye.emit(type.level, location)
-		update_price()
+			Global.coins -= price
+			SignalBus.spawn_eye.emit(type.level, location)
+			update_price()
+			SignalBus.start_cooldown.emit(0.2) #cooldown between buttons
 	else:
 		print("ur broke lol")
 
 func payable() -> bool:
 	if price > Global.coins:
-		modulate.a = 0.75
-		modulate = Color.CADET_BLUE
+		make_unavailable()
 		#SET SFx TO ERROR TODO
+		return false
+	elif Global.cooldown:
+		#make_unavailable()
 		return false
 	else:
 		modulate.a = 1.0
@@ -79,7 +82,7 @@ func payable() -> bool:
 		# SET SFX TO PURCHASE TODO
 
 func update_price():
-	price *= 1.7
+	price *= 1.5
 	update_label()
 
 func reset_price():
@@ -109,3 +112,9 @@ func update_label() -> void:
 		location.to_upper()
 	]
 	
+func payable_redirect(temp : int):
+	payable()
+	
+func make_unavailable():
+	modulate.a = 0.75
+	modulate = Color.CADET_BLUE

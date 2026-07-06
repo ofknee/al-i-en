@@ -25,7 +25,8 @@ func _ready() -> void:
 
 
 ## interaction tweens
-const COLOR_PRESSED := Color(0.9, 0.9, 0.9, 1.0)
+const COLOR_PRESSED := Color(0.0, 0.657, 1.51, 1.0)
+const COLOR_NORMAL := Color(0.0, 0.829, 1.922)
 var tween: Tween
 func _on_mouse_entered() -> void: ##hover tween
 	if tween:
@@ -56,9 +57,18 @@ func _on_button_up() -> void: ##pressed to hover tween
 	tween.set_trans(Tween.TRANS_BACK)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "scale", Vector2(1.1, 1.1), 0.1)
-	self_modulate = Color.WHITE
+	self_modulate = COLOR_NORMAL
 
 
 func _on_pressed() -> void:
-	var type = eye_collection[randi_range(0,eye_collection.size()-1)]
-	SignalBus.spawn_eye.emit(type.level, "random")
+	if !(Global.cooldown):
+		var type = eye_collection[randi_range(0,eye_collection.size()-1)]
+		SignalBus.spawn_eye.emit(type.level, "random")
+		SignalBus.start_cooldown.emit(0.2)
+
+#func check_cooldown() -> bool:
+	#if Global.cooldown:
+		#return true
+	#else:
+		#return false
+		

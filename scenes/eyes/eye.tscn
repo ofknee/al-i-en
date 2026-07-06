@@ -6,20 +6,21 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r3l4q"]
 friction = 2.0
 rough = true
-bounce = 0.3
+bounce = 0.1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g3y2c"]
 resource_local_to_scene = true
-radius = 8.21
+radius = 13.0
 
 [node name="eye" type="RigidBody2D" unique_id=591625421]
+mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_r3l4q")
 contact_monitor = true
 max_contacts_reported = 20
 script = ExtResource("1_r3l4q")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=676384621]
-scale = Vector2(0.02, 0.02)
+scale = Vector2(0.03, 0.03)
 texture = ExtResource("2_r3l4q")
 region_enabled = true
 region_rect = Rect2(647, 643, 854, 838)

@@ -53,11 +53,16 @@ func spawn_new(level: int, location : String) -> void: ##spawn eye @ top
 	
 	
 func spawn_merged(level: int, merge_position : Vector2):
-	var inst: Eye = eye_scene.instantiate()
-	inst.info = eye_collection[level-1]
-	add_child(inst)
-	inst.position = merge_position
-	Global.coins += inst.info.value/value_dampening
+	if level < eye_collection.size():
+		var inst: Eye = eye_scene.instantiate()
+		inst.info = eye_collection[level-1]
+		add_child(inst)
+		inst.position = merge_position
+		Global.coins += inst.info.value/value_dampening
+		Global.score += inst.info.value
+	else:
+		Global.score +=  eye_collection[-1].info.value * 2
+		pass
 
 func kill_all_eyes():
 	var tally_coins : int = 0
@@ -68,4 +73,4 @@ func kill_all_eyes():
 	@warning_ignore("integer_division")
 	Global.coins += tally_coins/value_dampening
 	Global.sells += 1
-	SignalBus.start_timer.emit(20.0) ##HACK TESTING FIXME TODO
+	SignalBus.start_cooldown.emit(20.0) ##HACK TESTING FIXME TODO
