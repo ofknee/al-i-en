@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cpxorq2xxxiym"]
 
-[ext_resource type="Texture2D" uid="uid://036wgkypeyos" path="res://assets/env/jar_sketch_colored.png" id="1_c67kb"]
-[ext_resource type="Texture2D" uid="uid://cctx3vcslpsqf" path="res://assets/env/jar_lid.png" id="2_hvr6i"]
+[ext_resource type="Texture2D" uid="uid://bs5wexosiog3h" path="res://assets/env/jar_sketch_colored.png" id="1_c67kb"]
+[ext_resource type="Texture2D" uid="uid://bm3nhuepapeiv" path="res://assets/env/shadow.png" id="1_hvr6i"]
+[ext_resource type="Texture2D" uid="uid://bbxefpla8w454" path="res://assets/env/jar_lid.png" id="2_hvr6i"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8o121"]
 distance = -360.0
@@ -10,6 +11,25 @@ distance = -360.0
 size = Vector2(286, 38)
 
 [node name="jar" type="Node2D" unique_id=87631032]
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1405596422]
+modulate = Color(1, 1, 1, 0.6745098)
+position = Vector2(73, 333)
+scale = Vector2(0.75404733, 0.40814894)
+texture = ExtResource("1_hvr6i")
+
+[node name="Shadow2" type="Sprite2D" parent="." unique_id=203109439]
+modulate = Color(0.93105704, 0.93105704, 0.93105704, 1)
+position = Vector2(-436, 415.00003)
+scale = Vector2(0.16152778, 0.2061525)
+texture = ExtResource("1_hvr6i")
+
+[node name="Shadow3" type="Sprite2D" parent="." unique_id=295885029]
+modulate = Color(0.93105704, 0.93105704, 0.93105704, 1)
+position = Vector2(476, 386.00003)
+scale = Vector2(0.16152778, 0.2061525)
+texture = ExtResource("1_hvr6i")
+flip_h = true
 
 [node name="JarSprite" type="Sprite2D" parent="." unique_id=475935047]
 position = Vector2(16.499977, -146.5)
@@ -29,7 +49,7 @@ scale = Vector2(2.1600008, 1)
 
 [node name="Outer" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=91363342]
 position = Vector2(-292.12952, -309)
-polygon = PackedVector2Array(-1.8518677, 3, 28.703674, 3, 25.462952, 509.99994, 77.31477, 605.99994, 100.92587, 618.99994, 376.85168, 620.99994, 430.55536, 609.99994, 476.38867, 467.99994, 454.16647, 232.99997, 442.5924, -7, 470.83313, -7, 519.90717, 482.99994, 463.88867, 693.99994, 212.03693, 725.99994, -43.055542, 611.99994, -37.06665, 459.64575, -26.388885, 187.99997, -2.3148193, -3)
+polygon = PackedVector2Array(19.675919, -1.5, 28.703674, 3, 25.462952, 509.99994, 77.31477, 605.99994, 100.92587, 618.99994, 376.85168, 620.99994, 430.55536, 609.99994, 476.38867, 467.99994, 454.16647, 232.99997, 442.5924, -7, 454.86093, -19.5, 504.8609, 462.49994, 506.24982, 745.49994, 21.527771, 773.49994, 1.1574097, 545.49994, 7.175934, 230.49997, 3.009262, 57.499985)
 
 [node name="WorldBoundary" type="CollisionShape2D" parent="StaticBody2D" unique_id=2125405993]
 position = Vector2(-394, 113.99999)

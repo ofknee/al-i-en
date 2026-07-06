@@ -64,7 +64,7 @@ func _on_pressed() -> void:
 	if !(Global.cooldown):
 		var type = eye_collection[randi_range(0,eye_collection.size()-1)]
 		SignalBus.spawn_eye.emit(type.level, "random")
-		SignalBus.start_cooldown.emit(0.2)
+		SignalBus.start_cooldown.emit(0.4)
 
 #func check_cooldown() -> bool:
 	#if Global.cooldown:

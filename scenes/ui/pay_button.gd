@@ -63,7 +63,7 @@ func _on_pressed() -> void:  ##spawn eye laccording to button type
 			Global.coins -= price
 			SignalBus.spawn_eye.emit(type.level, location)
 			update_price()
-			SignalBus.start_cooldown.emit(0.2) #cooldown between buttons
+			SignalBus.start_cooldown.emit(0.4) #cooldown between buttons
 	else:
 		print("ur broke lol")
 
@@ -101,7 +101,7 @@ func get_location() -> String:
 		
 func setup(new_type: EyeInfo) -> void:
 	type = new_type
-	price = type.value
+	price = type.value*2
 	update_label()
 	payable()
 

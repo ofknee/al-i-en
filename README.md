@@ -11,19 +11,10 @@ eye merge
 * 
 
 ## reconstruction/balancing
-* random button?
-and not random you choose where to drop
-* on click increase price
-* reset/double og after sell???????
-* drop at random area up top???
 * anything at top gets deleted?
-* 0.5 wait for spawn
-
 * how stop overflow
-* how limit sell to infinite win?
+
 * giant eye upon win
-*overall stats = timer, number of sells
-* half half
 
 * action isn't inherently fun, needs to be fun otherwise
 *always choose where it goes??? just suika with a shop then????

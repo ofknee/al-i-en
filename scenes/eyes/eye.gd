@@ -4,7 +4,7 @@ class_name Eye
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var coll: CollisionShape2D = $CollisionShape2D
 var og_sprite_scale = 0.03
-var og_coll_scale = 13
+var og_coll_scale = 12.7
 var level : int
 
 @export var info: EyeInfo = null
@@ -18,7 +18,7 @@ func type() -> void:
 	if info == null:
 		return
 	sprite.texture = info.texture
-	var scale_factor = 1.0 + ((info.level**1.8)/8.0)
+	var scale_factor = 1.0 + ((info.level**1.7)/10.0)
 	level = info.level
 	scale(scale_factor)
 	

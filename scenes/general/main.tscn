@@ -2,8 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://cpxorq2xxxiym" path="res://scenes/environment/jar.tscn" id="1_4m08x"]
 [ext_resource type="PackedScene" uid="uid://076bv3dy73a4" path="res://scenes/general/EyeManager.tscn" id="1_gbbem"]
+[ext_resource type="Script" uid="uid://df74bf7bmvqp4" path="res://scenes/general/floor.gd" id="3_6owyd"]
+[ext_resource type="Texture2D" uid="uid://dyqkcgndty55g" path="res://assets/env/floor.png" id="3_fbb5g"]
 [ext_resource type="Resource" uid="uid://qhtnlm64qf7d" path="res://scenes/eyes/level1.tres" id="4_6t4g7"]
 [ext_resource type="Resource" uid="uid://b6vw8vrq8dm5i" path="res://scenes/eyes/level4.tres" id="4_6w4s0"]
+[ext_resource type="Texture2D" uid="uid://dxpouqxyv5odx" path="res://assets/ui/button_square_depth_line.svg" id="4_fbb5g"]
 [ext_resource type="Resource" uid="uid://ipy83l5up4vf" path="res://scenes/eyes/level5.tres" id="5_18j88"]
 [ext_resource type="Resource" uid="uid://dfsgqyvm8460b" path="res://scenes/eyes/level2.tres" id="5_th32y"]
 [ext_resource type="Resource" uid="uid://cdqupxruo0msa" path="res://scenes/eyes/level3.tres" id="6_btprj"]
@@ -14,14 +17,23 @@
 [ext_resource type="Texture2D" uid="uid://ga4f5rlh6lmc" path="res://assets/ui/button.png" id="11_hk7ck"]
 [ext_resource type="Script" uid="uid://bffcsd856huo" path="res://scenes/ui/kill_button.gd" id="11_jyi1d"]
 [ext_resource type="Script" uid="uid://dn73p4j6wurn" path="res://scenes/ui/random_spawn.gd" id="12_ekdj5"]
-[ext_resource type="Texture2D" uid="uid://duahv7mkim3xr" path="res://assets/ui/coin.png" id="12_jyi1d"]
 [ext_resource type="Script" uid="uid://dmtbptwa3hqd5" path="res://scenes/ui/i_is_rich.gd" id="12_lared"]
 [ext_resource type="Resource" uid="uid://bsebt03oxnfmu" path="res://scenes/eyes/level7.tres" id="12_umqea"]
 [ext_resource type="Resource" uid="uid://dyjkijc4xx0yu" path="res://scenes/eyes/level8.tres" id="13_hk7ck"]
 [ext_resource type="Resource" uid="uid://bjfd2n3ushw5c" path="res://scenes/eyes/level9.tres" id="14_ekdj5"]
 [ext_resource type="Script" uid="uid://ckwdrvxf5ae58" path="res://scenes/general/timer.gd" id="15_57chg"]
 [ext_resource type="Texture2D" uid="uid://jedh3rwj5ltr" path="res://assets/ui/progress/greybutton.png" id="16_wvtxl"]
+[ext_resource type="Texture2D" uid="uid://ckdb0uysvmc7r" path="res://assets/ui/hanging bars.png" id="22_7jcx4"]
 [ext_resource type="Script" uid="uid://bs81chytk1xlu" path="res://scenes/general/score_text.gd" id="22_l5l13"]
+[ext_resource type="Texture2D" uid="uid://cmu672u0y7p5u" path="res://assets/ui/good-coin.png" id="24_6owyd"]
+[ext_resource type="Texture2D" uid="uid://dcvvidwbnsajq" path="res://assets/ui/xpstar.png" id="26_70u7r"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_43hlm"]
+a = Vector2(338, -20)
+b = Vector2(338, 654)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43hlm"]
+size = Vector2(812, 47.5)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_17ntd"]
 texture = ExtResource("11_hk7ck")
@@ -40,11 +52,31 @@ grow_vertical = 2
 [node name="env" type="Node2D" parent="." unique_id=1389023258]
 
 [node name="jar" parent="env" unique_id=87631032 instance=ExtResource("1_4m08x")]
-position = Vector2(750, 408)
+position = Vector2(698, 408)
 scale = Vector2(0.45325017, 0.45420963)
 
 [node name="Spawner" parent="." unique_id=733594041 instance=ExtResource("1_gbbem")]
-position = Vector2(742, 148)
+position = Vector2(690, 148)
+
+[node name="ShopProtector" type="StaticBody2D" parent="." unique_id=2087657680]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShopProtector" unique_id=1578002619]
+shape = SubResource("SegmentShape2D_43hlm")
+
+[node name="Floor" type="Area2D" parent="." unique_id=2141079484]
+script = ExtResource("3_6owyd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=211250485]
+position = Vector2(748, 597.75)
+shape = SubResource("RectangleShape2D_43hlm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=1107602820]
+z_index = -1
+position = Vector2(777.00006, 132)
+scale = Vector2(0.510646, 0.510646)
+texture = ExtResource("3_fbb5g")
+
+[node name="Timer" type="Timer" parent="Floor" unique_id=1856120437]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1879695635]
 
@@ -56,12 +88,29 @@ anchors_preset = 9
 anchor_bottom = 1.0
 grow_vertical = 2
 
+[node name="TextureRect" type="NinePatchRect" parent="CanvasLayer/Shop" unique_id=1131786197]
+self_modulate = Color(0.7738679, 0.6200429, 0.44424278, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -71.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_fbb5g")
+patch_margin_left = 15
+patch_margin_top = 12
+patch_margin_right = 13
+patch_margin_bottom = 14
+
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Shop" unique_id=1506808134]
 propagate_maximum_size = true
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
+offset_top = 8.0
 offset_right = 338.0
+offset_bottom = -12.0
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_horizontal = 3
@@ -232,6 +281,8 @@ script = ExtResource("12_lared")
 layout_mode = 2
 
 [node name="Stats" type="Control" parent="CanvasLayer" unique_id=942632118]
+z_index = -2
+z_as_relative = false
 custom_minimum_size = Vector2(600, 100)
 layout_mode = 3
 anchors_preset = 1
@@ -242,27 +293,76 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_43hlm")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Stats" unique_id=1845312743]
-custom_minimum_size = Vector2(500, 100)
+[node name="BG" type="Control" parent="CanvasLayer/Stats" unique_id=1528045517]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Bars" type="TextureRect" parent="CanvasLayer/Stats/BG" unique_id=1763796153]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 30.55
+anchor_top = 25.05
+anchor_right = 31.55
+anchor_bottom = 26.05
+offset_left = -1004.0
+offset_top = -1004.0
+offset_right = 1004.0
+offset_bottom = 1004.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1649862, 0.051561628)
+texture = ExtResource("22_7jcx4")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="NinePatchRect" parent="CanvasLayer/Stats/BG" unique_id=848435139]
+self_modulate = Color(0.7738679, 0.6200429, 0.44424278, 1)
+custom_minimum_size = Vector2(300, 130)
+custom_maximum_size = Vector2(300, 300)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -500.0
-offset_bottom = 100.0
+offset_left = 196.0
+offset_top = 55.0
+offset_right = 496.0
+offset_bottom = 185.0
 grow_horizontal = 0
+texture = ExtResource("4_fbb5g")
+patch_margin_left = 15
+patch_margin_top = 12
+patch_margin_right = 13
+patch_margin_bottom = 14
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Stats/MarginContainer" unique_id=2012865507]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Stats/BG/Panel" unique_id=1845312743]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -342.0
+offset_top = -1.9999971
+offset_right = 58.0
+offset_bottom = 138.0
+grow_horizontal = 0
+scale = Vector2(0.84135735, 0.84135735)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Stats/BG/Panel/MarginContainer" unique_id=2012865507]
 layout_mode = 2
+theme_override_constants/separation = -29
 
-[node name="Bank" type="HBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer" unique_id=1574073066]
+[node name="Bank" type="HBoxContainer" parent="CanvasLayer/Stats/BG/Panel/MarginContainer/VBoxContainer" unique_id=1574073066]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 4
 
-[node name="CurrencyText" type="RichTextLabel" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/Bank" unique_id=1171032743]
+[node name="CurrencyText" type="RichTextLabel" parent="CanvasLayer/Stats/BG/Panel/MarginContainer/VBoxContainer/Bank" unique_id=1171032743]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0.49, 0.31164002, 0.2156, 1)
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/normal_font = ExtResource("11_ekdj5")
 theme_override_font_sizes/normal_font_size = 75
 text = "123456789"
@@ -271,21 +371,30 @@ horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("11_ehwae")
 
-[node name="Sprite2D" type="TextureRect" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/Bank" unique_id=632035926]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Stats/BG/Panel/MarginContainer/VBoxContainer/Bank" unique_id=436198522]
 layout_mode = 2
-size_flags_horizontal = 8
-texture = ExtResource("12_jyi1d")
-expand_mode = 3
-stretch_mode = 5
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
 
-[node name="Score" type="HBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer" unique_id=367155065]
+[node name="Coin" type="TextureRect" parent="CanvasLayer/Stats/BG/Panel/MarginContainer/VBoxContainer/Bank/MarginContainer" unique_id=66924345]
+custom_maximum_size = Vector2(80, -1)
+layout_mode = 2
+texture = ExtResource("24_6owyd")
+expand_mode = 3
+
+[node name="Score" type="HBoxContainer" parent="CanvasLayer/Stats/BG/Panel/MarginContainer/VBoxContainer" unique_id=367155065]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ScoreText" type="RichTextLabel" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/Score" unique_id=611637999]
+[node name="ScoreText" type="RichTextLabel" parent="CanvasLayer/Stats/BG/Panel/MarginContainer/VBoxContainer/Score" unique_id=611637999]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0.49019608, 0.30980393, 0.21568628, 1)
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/normal_font_size = 75
 text = "123456789"
 scroll_active = false
@@ -293,13 +402,19 @@ horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("22_l5l13")
 
-[node name="Sprite2D" type="TextureRect" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/Score" unique_id=579615236]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Stats/BG/Panel/MarginContainer/VBoxContainer/Score" unique_id=1501045972]
 layout_mode = 2
-size_flags_horizontal = 8
-texture = ExtResource("12_jyi1d")
-expand_mode = 3
-stretch_mode = 5
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
 
+[node name="Star" type="TextureRect" parent="CanvasLayer/Stats/BG/Panel/MarginContainer/VBoxContainer/Score/MarginContainer" unique_id=1644794301]
+custom_maximum_size = Vector2(80, -1)
+layout_mode = 2
+texture = ExtResource("26_70u7r")
+expand_mode = 3
+
+[connection signal="body_entered" from="Floor" to="Spawner" method="_on_floor_body_entered"]
 [connection signal="timeout" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/Cooldown/Timer" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/Cooldown" method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/KillButton" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/KillButton" method="_on_pressed"]
 [connection signal="button_down" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" method="_on_button_down"]
