@@ -73,7 +73,7 @@ func payable() -> bool:
 
 func update_price():
 	price *= 1.5
-	label.text = str(price)
+	update_label()
 
 func reset_price():
 	#price = type.value
@@ -92,4 +92,11 @@ func get_location() -> String:
 func setup(new_type: EyeInfo) -> void:
 	type = new_type
 	price = type.value
-	label.text = str(price)
+	update_label()
+
+func update_label() -> void:
+	label.text = "LEVEL %d EYE\nPRICE: %d\n%s" % [
+		type.level,
+		price,
+		location.to_upper()
+	]
