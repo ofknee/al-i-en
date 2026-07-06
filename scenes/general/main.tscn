@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://076bv3dy73a4" path="res://scenes/general/EyeManager.tscn" id="1_gbbem"]
 [ext_resource type="Resource" uid="uid://qhtnlm64qf7d" path="res://scenes/eyes/level1.tres" id="4_6t4g7"]
 [ext_resource type="Resource" uid="uid://b6vw8vrq8dm5i" path="res://scenes/eyes/level4.tres" id="4_6w4s0"]
-[ext_resource type="PackedScene" uid="uid://bw645k3ex02ay" path="res://scenes/ui/pay_button.tscn" id="4_qkl7e"]
 [ext_resource type="Resource" uid="uid://ipy83l5up4vf" path="res://scenes/eyes/level5.tres" id="5_18j88"]
 [ext_resource type="Resource" uid="uid://dfsgqyvm8460b" path="res://scenes/eyes/level2.tres" id="5_th32y"]
 [ext_resource type="Resource" uid="uid://cdqupxruo0msa" path="res://scenes/eyes/level3.tres" id="6_btprj"]
 [ext_resource type="Resource" uid="uid://cw55id4dbpbte" path="res://scenes/eyes/level6.tres" id="6_ehwae"]
+[ext_resource type="PackedScene" uid="uid://dmjoqhcaxm2xl" path="res://scenes/ui/section.tscn" id="9_hk7ck"]
 [ext_resource type="Script" uid="uid://c8jyltrtrq764" path="res://scenes/ui/currency_text.gd" id="11_ehwae"]
 [ext_resource type="Texture2D" uid="uid://ga4f5rlh6lmc" path="res://assets/ui/button.png" id="11_hk7ck"]
 [ext_resource type="Script" uid="uid://bffcsd856huo" path="res://scenes/ui/kill_button.gd" id="11_jyi1d"]
@@ -72,6 +72,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 
 [node name="KillButton" type="Button" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1155501836]
+visible = false
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "Sell???"
@@ -102,65 +103,50 @@ text = "Spawn Basic Eye"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonLevel1" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1306864685 instance=ExtResource("4_qkl7e")]
-custom_minimum_size = Vector2(150, 100)
+[node name="Section1" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1317737401 instance=ExtResource("9_hk7ck")]
 layout_mode = 2
-size_flags_horizontal = 0
-type = ExtResource("4_6t4g7")
+eye_type = ExtResource("4_6t4g7")
 
-[node name="ButtonLevel2" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=176351069 instance=ExtResource("4_qkl7e")]
-custom_minimum_size = Vector2(150, 100)
+[node name="Section2" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=434424288 instance=ExtResource("9_hk7ck")]
 layout_mode = 2
-size_flags_horizontal = 0
-type = ExtResource("5_th32y")
+eye_type = ExtResource("5_th32y")
 
-[node name="ButtonLevel3" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=663463377 instance=ExtResource("4_qkl7e")]
-custom_minimum_size = Vector2(150, 100)
+[node name="Section3" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=194234250 instance=ExtResource("9_hk7ck")]
 layout_mode = 2
-size_flags_horizontal = 0
-type = ExtResource("6_btprj")
+eye_type = ExtResource("6_btprj")
 
-[node name="ButtonLevel4" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1023300500 instance=ExtResource("4_qkl7e")]
-custom_minimum_size = Vector2(150, 100)
+[node name="Section4" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=2144849153 instance=ExtResource("9_hk7ck")]
 layout_mode = 2
-size_flags_horizontal = 0
-type = ExtResource("4_6w4s0")
+eye_type = ExtResource("4_6w4s0")
 
-[node name="ButtonLevel5" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=2050389659 instance=ExtResource("4_qkl7e")]
-custom_minimum_size = Vector2(150, 100)
+[node name="Section5" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1871377139 instance=ExtResource("9_hk7ck")]
 layout_mode = 2
-size_flags_horizontal = 0
-type = ExtResource("5_18j88")
+eye_type = ExtResource("5_18j88")
 
-[node name="ButtonLevel6" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1405200713 instance=ExtResource("4_qkl7e")]
-custom_minimum_size = Vector2(150, 100)
+[node name="Section6" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1238236238 instance=ExtResource("9_hk7ck")]
 layout_mode = 2
-size_flags_horizontal = 0
-type = ExtResource("6_ehwae")
+eye_type = ExtResource("6_ehwae")
 
-[node name="ButtonLevel7" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1811989060 instance=ExtResource("4_qkl7e")]
-custom_minimum_size = Vector2(150, 100)
+[node name="Section7" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=127998881 instance=ExtResource("9_hk7ck")]
 layout_mode = 2
-size_flags_horizontal = 0
-type = ExtResource("12_umqea")
+eye_type = ExtResource("12_umqea")
 
-[node name="ButtonLevel8" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=214837402 instance=ExtResource("4_qkl7e")]
-custom_minimum_size = Vector2(150, 100)
+[node name="Section8" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=649606513 instance=ExtResource("9_hk7ck")]
 layout_mode = 2
-size_flags_horizontal = 0
-type = ExtResource("13_hk7ck")
+eye_type = ExtResource("13_hk7ck")
 
-[node name="ButtonLevel9" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=338252178 instance=ExtResource("4_qkl7e")]
-custom_minimum_size = Vector2(150, 100)
+[node name="Section9" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1409474266 instance=ExtResource("9_hk7ck")]
 layout_mode = 2
-size_flags_horizontal = 0
-type = ExtResource("14_ekdj5")
+eye_type = ExtResource("14_ekdj5")
 
 [node name="IIsRich" type="Button" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=285016823]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "i is rich"
 script = ExtResource("12_lared")
+
+[node name="BuySections" type="Control" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1032142820]
+layout_mode = 2
 
 [node name="Bank" type="Control" parent="CanvasLayer" unique_id=942632118]
 custom_minimum_size = Vector2(600, 100)

@@ -1,21 +1,29 @@
 ##general button to buy eye
-extends TextureButton
+extends Button
+
 ##paybutton type
 @export var type: EyeInfo
+
 ##paying/price
-@onready var price : int = type.value * 100## TODO add increasing factor based on round?
+var price: int
 @onready var label = $RichTextLabel
-@onready var coins : int = Global.coins
-var location : String
+var location: String
+@onready var coins: int = Global.coins
+
 
 ##hover overlay
-const COLOR_PRESSED := Color(0.9, 0.9, 0.9, 1.0)
+const COLOR_PRESSED := Color(0.85, 0.85, 0.85, 1.0)
 var tween: Tween
 
 func _ready() -> void:
 	SignalBus.force_kill.connect(reset_price)
-	label.text = str(price)
 	location = get_location()
+	
+	#HACK stylebox
+	var normal_style = get_theme_stylebox("normal")
+	add_theme_stylebox_override("hover", normal_style)
+	add_theme_stylebox_override("pressed", normal_style)
+	add_theme_stylebox_override("focus", normal_style)
 		
 
 func _on_mouse_entered() -> void: ##hover tween
@@ -64,7 +72,7 @@ func payable() -> bool:
 		return false
 
 func update_price():
-	price *= 2
+	price *= 1.5
 	label.text = str(price)
 
 func reset_price():
@@ -80,3 +88,8 @@ func get_location() -> String:
 	else:
 		print("Location of button %s not defined!!" %[name])
 		return "random"
+		
+func setup(new_type: EyeInfo) -> void:
+	type = new_type
+	price = type.value
+	label.text = str(price)

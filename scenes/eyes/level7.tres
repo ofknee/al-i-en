@@ -7,5 +7,5 @@
 script = ExtResource("1_reoxk")
 level = 7
 texture = ExtResource("2_kbqry")
-value = 100000
+value = 128
 metadata/_custom_type_script = "uid://cduu5qqh357kf"

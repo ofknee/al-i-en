@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dmjoqhcaxm2xl"]
+
+[ext_resource type="Script" uid="uid://fhofqylkn3u6" path="res://scenes/general/section.gd" id="1_t0egs"]
+[ext_resource type="PackedScene" uid="uid://bw645k3ex02ay" path="res://scenes/ui/pay_button.tscn" id="3_n4t75"]
+
+[node name="Section" type="HBoxContainer" unique_id=1317737401]
+theme_override_constants/separation = -1
+script = ExtResource("1_t0egs")
+
+[node name="LeftButton" parent="." unique_id=1536887952 instance=ExtResource("3_n4t75")]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="RightButton" parent="." unique_id=1399531073 instance=ExtResource("3_n4t75")]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+size_flags_horizontal = 0

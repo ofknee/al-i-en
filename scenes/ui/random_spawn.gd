@@ -1,4 +1,4 @@
-extends TextureButton
+extends Button
 
 @onready var label = $RichTextLabel
 @onready var coins : int = Global.coins
