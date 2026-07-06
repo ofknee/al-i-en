@@ -12,12 +12,12 @@ extends Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	
+	#HACK stylebox
+	var normal_style = get_theme_stylebox("normal")
+	add_theme_stylebox_override("hover", normal_style)
+	add_theme_stylebox_override("pressed", normal_style)
+	add_theme_stylebox_override("focus", normal_style)
 
 
 ## interaction tweens
