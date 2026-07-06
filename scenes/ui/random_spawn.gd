@@ -7,7 +7,11 @@ extends Button
 @export var level2 : EyeInfo
 @export var level3 : EyeInfo
 
-@onready var eye_collection = [level1, level2, level3]
+@onready var eye_collection = [
+	level1, level1,level1,
+	level2,level2,
+	level3
+]
 
 
 # Called when the node enters the scene tree for the first time.

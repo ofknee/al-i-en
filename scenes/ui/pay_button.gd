@@ -18,6 +18,7 @@ var tween: Tween
 func _ready() -> void:
 	SignalBus.force_kill.connect(reset_price)
 	location = get_location()
+	Global.currency_changed.connect(payable)
 	
 	#HACK stylebox
 	var normal_style = get_theme_stylebox("normal")
@@ -66,13 +67,19 @@ func _on_pressed() -> void:  ##spawn eye laccording to button type
 		print("ur broke lol")
 
 func payable() -> bool:
-	if price <= Global.coins:
-		return true
-	else:
+	if price > Global.coins:
+		modulate.a = 0.75
+		modulate = Color.CADET_BLUE
+		#SET SFx TO ERROR TODO
 		return false
+	else:
+		modulate.a = 1.0
+		modulate = Color.WHITE
+		return true
+		# SET SFX TO PURCHASE TODO
 
 func update_price():
-	price *= 1.5
+	price *= 1.7
 	update_label()
 
 func reset_price():
@@ -93,10 +100,12 @@ func setup(new_type: EyeInfo) -> void:
 	type = new_type
 	price = type.value
 	update_label()
+	payable()
 
 func update_label() -> void:
-	label.text = "LEVEL %d EYE\nPRICE: %d\n%s" % [
+	label.text = "LEVEL %d EYE\n[outline_size=2][outline_color=black]d%d[/outline_color][/outline_size]\nSPAWN %s" % [
 		type.level,
 		price,
 		location.to_upper()
 	]
+	

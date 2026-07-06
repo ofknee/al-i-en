@@ -106,7 +106,7 @@ self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/Panel" unique_id=159263693]
+[node name="Title" type="RichTextLabel" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/Panel" unique_id=159263693]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

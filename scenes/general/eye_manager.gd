@@ -57,7 +57,7 @@ func spawn_merged(level: int, merge_position : Vector2):
 	inst.info = eye_collection[level-1]
 	add_child(inst)
 	inst.position = merge_position
-	Global.coins += inst.info.value
+	Global.coins += inst.info.value/value_dampening
 
 func kill_all_eyes():
 	var tally_coins : int = 0

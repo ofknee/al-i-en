@@ -11,7 +11,7 @@ texture = ExtResource("1_17ntd")
 
 [sub_resource type="Theme" id="Theme_es18q"]
 default_font = ExtResource("3_c5ibf")
-default_font_size = 24
+default_font_size = 28
 
 [node name="PayButton" type="Button" unique_id=1536887952]
 custom_maximum_size = Vector2(150, -1)
@@ -39,16 +39,20 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -3.0
 offset_right = -3.0517578e-05
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9988718, 1)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
 theme = SubResource("Theme_es18q")
-theme_override_constants/line_separation = -5
+theme_override_constants/line_separation = -9
+bbcode_enabled = true
 text = "LEVEL X EYE
-PRICE {sfijslkdfjslkdf}"
+d340
+SPAWN LEFT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
