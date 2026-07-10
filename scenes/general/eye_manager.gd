@@ -65,12 +65,9 @@ func spawn_merged(level: int, merge_position : Vector2):
 		pass
 
 func kill_all_eyes():
-	var tally_coins : int = 0
+	#var tally_coins : int = 0
 	for child in get_children():
 		if child is Eye: 
-			tally_coins += child.info.value
+			#tally_coins += child.info.value
 			child.queue_free()
-	@warning_ignore("integer_division")
-	Global.coins += tally_coins/value_dampening
-	Global.sells += 1
 	SignalBus.start_cooldown.emit(20.0) ##HACK TESTING FIXME TODO

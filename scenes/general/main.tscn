@@ -24,9 +24,11 @@
 [ext_resource type="Script" uid="uid://ckwdrvxf5ae58" path="res://scenes/general/timer.gd" id="15_57chg"]
 [ext_resource type="Texture2D" uid="uid://jedh3rwj5ltr" path="res://assets/ui/progress/greybutton.png" id="16_wvtxl"]
 [ext_resource type="Texture2D" uid="uid://ckdb0uysvmc7r" path="res://assets/ui/hanging bars.png" id="22_7jcx4"]
-[ext_resource type="Script" uid="uid://bs81chytk1xlu" path="res://scenes/general/score_text.gd" id="22_l5l13"]
+[ext_resource type="Script" uid="uid://bs81chytk1xlu" path="res://scenes/ui/score_text.gd" id="22_l5l13"]
 [ext_resource type="Texture2D" uid="uid://cmu672u0y7p5u" path="res://assets/ui/good-coin.png" id="24_6owyd"]
 [ext_resource type="Texture2D" uid="uid://dcvvidwbnsajq" path="res://assets/ui/xpstar.png" id="26_70u7r"]
+[ext_resource type="Script" uid="uid://bfhskp367f1er" path="res://scenes/general/game_over.gd" id="28_hkykt"]
+[ext_resource type="Texture2D" uid="uid://jghxurkjxeyo" path="res://assets/ui/button_square_depth_flat.svg" id="29_bcpxj"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_43hlm"]
 a = Vector2(338, -20)
@@ -51,32 +53,30 @@ grow_vertical = 2
 
 [node name="env" type="Node2D" parent="." unique_id=1389023258]
 
+[node name="ShopProtector" type="StaticBody2D" parent="env" unique_id=2087657680]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env/ShopProtector" unique_id=1578002619]
+shape = SubResource("SegmentShape2D_43hlm")
+
+[node name="Floor" type="Area2D" parent="env" unique_id=2141079484]
+script = ExtResource("3_6owyd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env/Floor" unique_id=211250485]
+position = Vector2(748, 597.75)
+shape = SubResource("RectangleShape2D_43hlm")
+
+[node name="Sprite2D" type="Sprite2D" parent="env/Floor" unique_id=1107602820]
+z_index = -1
+position = Vector2(777.00006, 132)
+scale = Vector2(0.510646, 0.510646)
+texture = ExtResource("3_fbb5g")
+
 [node name="jar" parent="env" unique_id=87631032 instance=ExtResource("1_4m08x")]
 position = Vector2(698, 408)
 scale = Vector2(0.45325017, 0.45420963)
 
 [node name="Spawner" parent="." unique_id=733594041 instance=ExtResource("1_gbbem")]
 position = Vector2(690, 148)
-
-[node name="ShopProtector" type="StaticBody2D" parent="." unique_id=2087657680]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ShopProtector" unique_id=1578002619]
-shape = SubResource("SegmentShape2D_43hlm")
-
-[node name="Floor" type="Area2D" parent="." unique_id=2141079484]
-script = ExtResource("3_6owyd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=211250485]
-position = Vector2(748, 597.75)
-shape = SubResource("RectangleShape2D_43hlm")
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=1107602820]
-z_index = -1
-position = Vector2(777.00006, 132)
-scale = Vector2(0.510646, 0.510646)
-texture = ExtResource("3_fbb5g")
-
-[node name="Timer" type="Timer" parent="Floor" unique_id=1856120437]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1879695635]
 
@@ -272,6 +272,7 @@ layout_mode = 2
 eye_type = ExtResource("14_ekdj5")
 
 [node name="IIsRich" type="Button" parent="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer" unique_id=285016823]
+visible = false
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "i is rich"
@@ -414,7 +415,98 @@ layout_mode = 2
 texture = ExtResource("26_70u7r")
 expand_mode = 3
 
-[connection signal="body_entered" from="Floor" to="Spawner" method="_on_floor_body_entered"]
+[node name="GameOver" type="Control" parent="CanvasLayer" unique_id=473407124]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("28_hkykt")
+
+[node name="Overlay" type="NinePatchRect" parent="CanvasLayer/GameOver" unique_id=516568544]
+modulate = Color(0.00671897, 0.09232258, 0, 0.6627451)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("29_bcpxj")
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/GameOver" unique_id=2061200474]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/GameOver/MarginContainer" unique_id=1576770988]
+layout_mode = 2
+texture = ExtResource("11_hk7ck")
+region_rect = Rect2(57, 75, 1939, 1920)
+patch_margin_left = 200
+patch_margin_top = 200
+patch_margin_right = 200
+patch_margin_bottom = 200
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/GameOver/MarginContainer" unique_id=746598614]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOver/MarginContainer/MarginContainer2" unique_id=1767976431]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = -29
+
+[node name="Score" type="HBoxContainer" parent="CanvasLayer/GameOver/MarginContainer/MarginContainer2/VBoxContainer" unique_id=1815879213]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScoreText" type="RichTextLabel" parent="CanvasLayer/GameOver/MarginContainer/MarginContainer2/VBoxContainer/Score" unique_id=335072975]
+custom_maximum_size = Vector2(700, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0.49019608, 0.30980393, 0.21568628, 1)
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/normal_font = ExtResource("11_ekdj5")
+theme_override_font_sizes/normal_font_size = 150
+text = "123456789"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("22_l5l13")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/GameOver/MarginContainer/MarginContainer2/VBoxContainer/Score" unique_id=1119153846]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="Star" type="TextureRect" parent="CanvasLayer/GameOver/MarginContainer/MarginContainer2/VBoxContainer/Score/MarginContainer" unique_id=1552985673]
+custom_minimum_size = Vector2(100, 100)
+custom_maximum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("26_70u7r")
+expand_mode = 3
+stretch_mode = 5
+
+[connection signal="body_entered" from="env/Floor" to="env/Floor" method="_on_body_entered"]
 [connection signal="timeout" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/Cooldown/Timer" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/Cooldown" method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/KillButton" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/KillButton" method="_on_pressed"]
 [connection signal="button_down" from="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" to="CanvasLayer/Shop/ScrollContainer/MarginContainer/VBoxContainer/RandomSpawn" method="_on_button_down"]

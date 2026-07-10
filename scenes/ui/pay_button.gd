@@ -16,7 +16,6 @@ const COLOR_PRESSED := Color(0.85, 0.85, 0.85, 1.0)
 var tween: Tween
 
 func _ready() -> void:
-	SignalBus.force_kill.connect(reset_price)
 	location = get_location()
 	Global.currency_changed.connect(payable_redirect) #HACK
 	

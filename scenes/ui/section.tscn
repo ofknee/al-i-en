@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmjoqhcaxm2xl"]
 
-[ext_resource type="Script" uid="uid://fhofqylkn3u6" path="res://scenes/general/section.gd" id="1_t0egs"]
+[ext_resource type="Script" uid="uid://fhofqylkn3u6" path="res://scenes/ui/section.gd" id="1_t0egs"]
 [ext_resource type="PackedScene" uid="uid://bw645k3ex02ay" path="res://scenes/ui/pay_button.tscn" id="3_n4t75"]
 
 [node name="Section" type="HBoxContainer" unique_id=1317737401]

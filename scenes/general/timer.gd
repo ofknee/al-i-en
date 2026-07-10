@@ -12,8 +12,6 @@ func _process(delta: float) -> void:
 func start_cooldown(duration:float) -> void:
 	timer.start(duration)
 	Global.cooldown = true
-	print("global.cooldown", Global.cooldown)
 	
 func _on_timer_timeout() -> void:
 	Global.cooldown = false
-	print("global.cooldown", Global.cooldown)
