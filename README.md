@@ -1,8 +1,12 @@
 # AL-I-EN
 (puns puns puns and yes another eye game)
 
-tw: creepy eyes and eyestrain
+wooooooooo scarryyyy ; who doesn't love a good merge game? go forth make some eyeballs
 
+***tw: creepy eyes and eyestrain***
+
+[## PLAYABLE LINK
+](https://of-knee.itch.io/al-i-en)
 ## notes
 
 ### instructions
@@ -35,3 +39,10 @@ using...
 
 ### future plans
 - todo.md file contains brainstormed ideas from over the course of the game; some have already been implemented
+
+## pics
+<img width="431" height="849" alt="Screenshot 2026-08-31 at 8 36 40 PM" src="https://github.com/user-attachments/assets/2482b646-4573-4ea8-9847-72ea593e0a65" />
+<img width="1026" height="839" alt="Screenshot 2026-08-31 at 8 36 50 PM" src="https://github.com/user-attachments/assets/0f511e34-8b69-405e-8817-c154d02a518f" />
+<img width="1512" height="848" alt="Screenshot 2026-08-31 at 8 12 25 PM" src="https://github.com/user-attachments/assets/1f52f418-4b73-4f1c-853d-526b83a0c6e0" />
+
+
