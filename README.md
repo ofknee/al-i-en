@@ -5,8 +5,8 @@ wooooooooo scarryyyy ; who doesn't love a good merge game? go forth make some ey
 
 ***tw: creepy eyes and eyestrain***
 
-[## PLAYABLE LINK
-](https://of-knee.itch.io/al-i-en)
+## [playable itch link](https://of-knee.itch.io/al-i-en)
+
 ## notes
 
 ### instructions
