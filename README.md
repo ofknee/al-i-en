@@ -6,7 +6,7 @@ tw: creepy eyes and eyestrain
 ## notes
 
 ### instructions
-1. spam "free eye" because you're broke
+1. spam "free eye" because you're broke (save for the generous starting balance i've graciously allotted)
 2. get money from any merges that occur
 3. a. keep spamming free eyes
 3. b. strategically buy eyes of your choice to fall in the general vicinity of your choice (right/left)
