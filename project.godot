@@ -8,12 +8,16 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="al-i-en"
 run/main_scene="uid://fft5gn6vyuab"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://assets/icon.svg"
+config/icon="uid://ph2xauw2hbsb"
 
 [autoload]
 

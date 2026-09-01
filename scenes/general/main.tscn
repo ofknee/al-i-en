@@ -8,7 +8,9 @@
 [ext_resource type="Resource" uid="uid://b6vw8vrq8dm5i" path="res://scenes/eyes/level4.tres" id="4_6w4s0"]
 [ext_resource type="Texture2D" uid="uid://dxpouqxyv5odx" path="res://assets/ui/button_square_depth_line.svg" id="4_fbb5g"]
 [ext_resource type="Resource" uid="uid://ipy83l5up4vf" path="res://scenes/eyes/level5.tres" id="5_18j88"]
+[ext_resource type="Script" uid="uid://cmmyf6bkxuqtl" path="res://scenes/general/bg.gd" id="5_66lp6"]
 [ext_resource type="Resource" uid="uid://dfsgqyvm8460b" path="res://scenes/eyes/level2.tres" id="5_th32y"]
+[ext_resource type="Texture2D" uid="uid://bqr3ble1fsbm6" path="res://assets/env/bg.jpg" id="6_btaek"]
 [ext_resource type="Resource" uid="uid://cdqupxruo0msa" path="res://scenes/eyes/level3.tres" id="6_btprj"]
 [ext_resource type="Resource" uid="uid://cw55id4dbpbte" path="res://scenes/eyes/level6.tres" id="6_ehwae"]
 [ext_resource type="PackedScene" uid="uid://dmjoqhcaxm2xl" path="res://scenes/ui/section.tscn" id="9_hk7ck"]
@@ -52,6 +54,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="env" type="Node2D" parent="." unique_id=1389023258]
+
+[node name="BG" type="Parallax2D" parent="env" unique_id=1025363756]
+z_index = -18
+repeat_times = 3
+script = ExtResource("5_66lp6")
+
+[node name="Sprite2D" type="Sprite2D" parent="env/BG" unique_id=1545002685]
+position = Vector2(257, 61)
+texture = ExtResource("6_btaek")
 
 [node name="ShopProtector" type="StaticBody2D" parent="env" unique_id=2087657680]
 
